@@ -1,0 +1,9 @@
+version: '3'
+services:
+  wordpress:
+    volumes:
+      - bandas1album-wp-sync:/var/www/html/wp-content:nocopy
+
+volumes:
+  bandas1album-wp-sync:
+    external: true

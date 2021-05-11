@@ -1,0 +1,6 @@
+version: '2'
+
+syncs:
+  bandas1album-wp-sync:
+    src: '../html/wp-content'
+    sync_userid: 33
