@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4
+class ComposerStaticInit67015df085a881a9b4d10cfb01edc0dc
 {
     public static $files = array (
         'a3ed03db03d57650e139da3e8903943c' => __DIR__ . '/../..' . '/access-functions.php',
@@ -21,10 +21,6 @@ class ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4
         array (
             'GraphQL\\' => 8,
         ),
-        'A' => 
-        array (
-            'Appsero\\' => 8,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -36,17 +32,9 @@ class ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4
         array (
             0 => __DIR__ . '/..' . '/webonyx/graphql-php/src',
         ),
-        'Appsero\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/appsero/client/src',
-        ),
     );
 
     public static $classMap = array (
-        'Appsero\\Client' => __DIR__ . '/..' . '/appsero/client/src/Client.php',
-        'Appsero\\Insights' => __DIR__ . '/..' . '/appsero/client/src/Insights.php',
-        'Appsero\\License' => __DIR__ . '/..' . '/appsero/client/src/License.php',
-        'Appsero\\Updater' => __DIR__ . '/..' . '/appsero/client/src/Updater.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'GraphQLRelay\\Connection\\ArrayConnection' => __DIR__ . '/..' . '/ivome/graphql-relay-php/src/Connection/ArrayConnection.php',
         'GraphQLRelay\\Connection\\Connection' => __DIR__ . '/..' . '/ivome/graphql-relay-php/src/Connection/Connection.php',
@@ -353,7 +341,6 @@ class ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4
         'WPGraphQL\\Type\\Enum\\MenuNodeIdTypeEnum' => __DIR__ . '/../..' . '/src/Type/Enum/MenuNodeIdTypeEnum.php',
         'WPGraphQL\\Type\\Enum\\MimeTypeEnum' => __DIR__ . '/../..' . '/src/Type/Enum/MimeTypeEnum.php',
         'WPGraphQL\\Type\\Enum\\OrderEnum' => __DIR__ . '/../..' . '/src/Type/Enum/OrderEnum.php',
-        'WPGraphQL\\Type\\Enum\\PluginStatusEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PluginStatusEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectFieldFormatEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectFieldFormatEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectsConnectionDateColumnEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectsConnectionDateColumnEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectsConnectionOrderbyEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectsConnectionOrderbyEnum.php',
@@ -442,9 +429,9 @@ class ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit526aff7f5b33e6ebbeb20637b7fecaa4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit67015df085a881a9b4d10cfb01edc0dc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit67015df085a881a9b4d10cfb01edc0dc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit67015df085a881a9b4d10cfb01edc0dc::$classMap;
 
         }, null, ClassLoader::class);
     }

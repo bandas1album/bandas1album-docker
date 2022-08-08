@@ -2,6 +2,7 @@
 
 namespace Yoast\WP\SEO\Presenters\Admin;
 
+use WPSEO_Admin_Asset_Manager;
 use Yoast\WP\SEO\Presenters\Abstract_Presenter;
 
 /**

@@ -40,12 +40,12 @@ class Schema_IDs {
 	/**
 	 * Hash used for the Organization `@id`.
 	 */
-	const ORGANIZATION_LOGO_HASH = '#/schema/logo/image/';
+	const ORGANIZATION_LOGO_HASH = '#logo';
 
 	/**
 	 * Hash used for the logo `@id`.
 	 */
-	const PERSON_LOGO_HASH = '#/schema/person/image/';
+	const PERSON_LOGO_HASH = '#personlogo';
 
 	/**
 	 * Hash used for an Article's primary image `@id`.
@@ -54,10 +54,8 @@ class Schema_IDs {
 
 	/**
 	 * Hash used for the WebPage's `@id`.
-	 *
-	 * @deprecated 19.3
 	 */
-	const WEBPAGE_HASH = '';
+	const WEBPAGE_HASH = '#webpage';
 
 	/**
 	 * Hash used for the Website's `@id`.

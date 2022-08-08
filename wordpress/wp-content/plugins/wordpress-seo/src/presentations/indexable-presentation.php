@@ -41,7 +41,6 @@ use Yoast\WP\SEO\Models\Indexable;
  * @property string $open_graph_article_modified_time
  * @property string $open_graph_locale
  * @property string $open_graph_fb_app_id
- * @property string $permalink
  * @property array  $schema
  * @property string $twitter_card
  * @property string $twitter_title
@@ -224,13 +223,9 @@ class Indexable_Presentation extends Abstract_Presentation {
 	 *
 	 * @return string The permalink.
 	 */
-	public function generate_permalink() {
+	public function get_permalink() {
 		if ( $this->indexable_helper->dynamic_permalinks_enabled() ) {
 			return $this->permalink_helper->get_permalink_for_indexable( $this->model );
-		}
-
-		if ( \is_date() ) {
-			return $this->current_page->get_date_archive_permalink();
 		}
 
 		return $this->model->permalink;
@@ -393,8 +388,9 @@ class Indexable_Presentation extends Abstract_Presentation {
 			return $this->model->canonical;
 		}
 
-		if ( $this->permalink ) {
-			return $this->permalink;
+		$permalink = $this->get_permalink();
+		if ( $permalink ) {
+			return $permalink;
 		}
 
 		return '';
@@ -520,7 +516,7 @@ class Indexable_Presentation extends Abstract_Presentation {
 			return $this->model->canonical;
 		}
 
-		return $this->permalink;
+		return $this->get_permalink();
 	}
 
 	/**
@@ -734,9 +730,9 @@ class Indexable_Presentation extends Abstract_Presentation {
 	/**
 	 * Generates the schema for the page.
 	 *
-	 * @codeCoverageIgnore Wrapper method.
-	 *
 	 * @return array The Schema object.
+	 *
+	 * @codeCoverageIgnore Wrapper method.
 	 */
 	public function generate_schema() {
 		return $this->schema_generator->generate( $this->context );
@@ -745,9 +741,9 @@ class Indexable_Presentation extends Abstract_Presentation {
 	/**
 	 * Generates the breadcrumbs for the page.
 	 *
-	 * @codeCoverageIgnore Wrapper method.
-	 *
 	 * @return array The breadcrumbs.
+	 *
+	 * @codeCoverageIgnore Wrapper method.
 	 */
 	public function generate_breadcrumbs() {
 		return $this->breadcrumbs_generator->generate( $this->context );
@@ -756,9 +752,9 @@ class Indexable_Presentation extends Abstract_Presentation {
 	/**
 	 * Generates the estimated reading time.
 	 *
-	 * @codeCoverageIgnore Wrapper method.
-	 *
 	 * @return int|null The estimated reading time.
+	 *
+	 * @codeCoverageIgnore Wrapper method.
 	 */
 	public function generate_estimated_reading_time_minutes() {
 		if ( $this->model->estimated_reading_time_minutes !== null ) {

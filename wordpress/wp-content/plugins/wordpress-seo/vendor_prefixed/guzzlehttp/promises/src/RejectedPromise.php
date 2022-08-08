@@ -13,7 +13,7 @@ class RejectedPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInte
     private $reason;
     public function __construct($reason)
     {
-        if (\is_object($reason) && \method_exists($reason, 'then')) {
+        if (\method_exists($reason, 'then')) {
             throw new \InvalidArgumentException('You cannot create a RejectedPromise with a promise.');
         }
         $this->reason = $reason;
@@ -24,11 +24,11 @@ class RejectedPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInte
         if (!$onRejected) {
             return $this;
         }
-        $queue = \YoastSEO_Vendor\GuzzleHttp\Promise\Utils::queue();
+        $queue = queue();
         $reason = $this->reason;
         $p = new \YoastSEO_Vendor\GuzzleHttp\Promise\Promise([$queue, 'run']);
         $queue->add(static function () use($p, $reason, $onRejected) {
-            if (\YoastSEO_Vendor\GuzzleHttp\Promise\Is::pending($p)) {
+            if ($p->getState() === self::PENDING) {
                 try {
                     // Return a resolved promise if onRejected does not throw.
                     $p->resolve($onRejected($reason));
@@ -50,9 +50,8 @@ class RejectedPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInte
     public function wait($unwrap = \true, $defaultDelivery = null)
     {
         if ($unwrap) {
-            throw \YoastSEO_Vendor\GuzzleHttp\Promise\Create::exceptionFor($this->reason);
+            throw exception_for($this->reason);
         }
-        return null;
     }
     public function getState()
     {

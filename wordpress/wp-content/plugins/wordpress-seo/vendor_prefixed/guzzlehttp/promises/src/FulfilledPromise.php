@@ -13,7 +13,7 @@ class FulfilledPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInt
     private $value;
     public function __construct($value)
     {
-        if (\is_object($value) && \method_exists($value, 'then')) {
+        if (\method_exists($value, 'then')) {
             throw new \InvalidArgumentException('You cannot create a FulfilledPromise with a promise.');
         }
         $this->value = $value;
@@ -24,11 +24,11 @@ class FulfilledPromise implements \YoastSEO_Vendor\GuzzleHttp\Promise\PromiseInt
         if (!$onFulfilled) {
             return $this;
         }
-        $queue = \YoastSEO_Vendor\GuzzleHttp\Promise\Utils::queue();
+        $queue = queue();
         $p = new \YoastSEO_Vendor\GuzzleHttp\Promise\Promise([$queue, 'run']);
         $value = $this->value;
         $queue->add(static function () use($p, $value, $onFulfilled) {
-            if (\YoastSEO_Vendor\GuzzleHttp\Promise\Is::pending($p)) {
+            if ($p->getState() === self::PENDING) {
                 try {
                     $p->resolve($onFulfilled($value));
                 } catch (\Throwable $e) {

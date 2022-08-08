@@ -4,7 +4,7 @@ namespace Yoast\WP\SEO\Presenters;
 
 /**
  * Abstract presenter class for indexable tag presentations.
- *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded
  * @phpcs:disable Yoast.Files.FileName.InvalidClassFileName
  */
 abstract class Abstract_Indexable_Tag_Presenter extends Abstract_Indexable_Presenter {
@@ -44,11 +44,7 @@ abstract class Abstract_Indexable_Tag_Presenter extends Abstract_Indexable_Prese
 		 * There may be some classes that are derived from this class that do not use the $key property
 		 * in their $tag_format string. In that case the key property will simply not be used.
 		 */
-		return \sprintf(
-			$this->tag_format,
-			$this->escape_value( $value ),
-			$this->key
-		);
+		return \sprintf( $this->tag_format, $this->escape_value( $value ), $this->key );
 	}
 
 	/**
@@ -63,7 +59,7 @@ abstract class Abstract_Indexable_Tag_Presenter extends Abstract_Indexable_Prese
 			case 'html':
 				return \esc_html( $value );
 			case 'url':
-				return \esc_url( $value, null, 'attribute' );
+				return \esc_url( $value );
 			case 'attribute':
 			default:
 				return \esc_attr( $value );

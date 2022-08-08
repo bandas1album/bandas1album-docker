@@ -145,7 +145,7 @@ class Router {
 		 * If this filter returns anything other than null, the function will return now and skip the
 		 * default checks.
 		 *
-		 * @param ?bool $is_graphql_http_request Whether the request is a GraphQL HTTP Request. Default false.
+		 * @param boolean $is_graphql_http_request Whether the request is a GraphQL HTTP Request. Default false.
 		 */
 		$pre_is_graphql_http_request = apply_filters( 'graphql_pre_is_graphql_http_request', null );
 
@@ -174,20 +174,25 @@ class Router {
 
 				if ( ! is_string( $host ) ) {
 					return false;
-				}
-
-				if ( ! is_string( $uri ) ) {
+				} elseif ( ! is_string( $uri ) ) {
 					return false;
 				}
 
-				$parsed_site_url    = parse_url( site_url( self::$route ), PHP_URL_PATH );
-				$graphql_url        = ! empty( $parsed_site_url ) ? wp_unslash( $parsed_site_url ) : self::$route;
-				$parsed_request_url = parse_url( $uri, PHP_URL_PATH );
-				$request_url        = ! empty( $parsed_request_url ) ? wp_unslash( $parsed_request_url ) : '';
+				$full_path = $host . $uri;
+				$site_url  = site_url( self::$route );
 
-				// Determine if the route is indeed a graphql request
-				$is_graphql_http_request = str_replace( '/', '', $request_url ) === str_replace( '/', '', $graphql_url );
+				// Strip protocol.
+				$replaced_path = preg_replace( '#^(http(s)?://)#', '', $full_path );
+				if ( ! empty( $replaced_path ) ) {
+					$full_path = $replaced_path;
+				}
+				$replaced_url = preg_replace( '#^(http(s)?://)#', '', $site_url );
+				if ( ! empty( $replaced_url ) ) {
+					$site_url = $replaced_url;
+				}
 
+				$len                     = strlen( $site_url );
+				$is_graphql_http_request = ( substr( $full_path, 0, $len ) === $site_url );
 			}
 		}
 
@@ -481,9 +486,9 @@ class Router {
 			/**
 			 * Filter thrown GraphQL errors
 			 *
-			 * @param array               $errors   Formatted errors object.
-			 * @param \Exception          $error    Thrown error.
-			 * @param \WPGraphQL\Request  $request  WPGraphQL Request object.
+			 * @param array              $errors   Formatted errors object.
+			 * @param Exception          $error    Thrown error.
+			 * @param \WPGraphQL\Request $request  WPGraphQL Request object.
 			 */
 			$response['errors'] = apply_filters(
 				'graphql_http_request_response_errors',
@@ -510,7 +515,7 @@ class Router {
 		 * @param array  $result         The result of the GraphQL Query
 		 * @param string $operation_name The name of the operation
 		 * @param string $query          The request that GraphQL executed
-		 * @param ?array $variables      Variables to passed to your GraphQL query
+		 * @param array  $variables      Variables to passed to your GraphQL query
 		 * @param mixed  $status_code    The status code for the response
 		 *
 		 * @since 0.0.5

@@ -31,7 +31,7 @@ class TermObjectLoader extends AbstractDataLoader {
 			if ( 'nav_menu' === $entry->taxonomy ) {
 
 				$menu = new Menu( $entry );
-				if ( empty( $menu->fields ) ) {
+				if ( ! isset( $menu->fields ) || empty( $menu->fields ) ) {
 					return null;
 				} else {
 					return $menu;
@@ -39,7 +39,7 @@ class TermObjectLoader extends AbstractDataLoader {
 			} else {
 
 				$term = new Term( $entry );
-				if ( empty( $term->fields ) ) {
+				if ( ! isset( $term->fields ) || empty( $term->fields ) ) {
 					return null;
 				} else {
 					return  $term;
@@ -59,7 +59,7 @@ class TermObjectLoader extends AbstractDataLoader {
 	 * For example:
 	 * loadKeys(['a', 'b', 'c']) -> ['a' => 'value1, 'b' => null, 'c' => 'value3']
 	 *
-	 * @param int[] $keys
+	 * @param array $keys
 	 *
 	 * @return array
 	 * @throws Exception

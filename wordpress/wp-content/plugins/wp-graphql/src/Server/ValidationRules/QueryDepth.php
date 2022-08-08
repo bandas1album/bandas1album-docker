@@ -104,7 +104,9 @@ class QueryDepth extends QuerySecurityRule {
 
 			case $node instanceof InlineFragmentNode:
 				// node has children?
-				$maxDepth = $this->fieldDepth( $node, $depth, $maxDepth );
+				if ( isset( $node->selectionSet ) ) {
+					$maxDepth = $this->fieldDepth( $node, $depth, $maxDepth );
+				}
 				break;
 
 			case $node instanceof FragmentSpreadNode:

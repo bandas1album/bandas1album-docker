@@ -15,27 +15,27 @@ class TermObject {
 	/**
 	 * Register the Type for each kind of Taxonomy
 	 *
-	 * @param WP_Taxonomy $tax_object The taxonomy being registered
+	 * @param WP_Taxonomy $taxonomy_object The taxonomy being registered
 	 *
 	 * @return void
 	 */
-	public static function register_taxonomy_object_type( WP_Taxonomy $tax_object ) {
+	public static function register_taxonomy_object_type( WP_Taxonomy $taxonomy_object ) {
 
 		$interfaces = [ 'Node', 'TermNode', 'DatabaseIdentifier' ];
 
-		if ( true === $tax_object->public ) {
+		if ( true === $taxonomy_object->public ) {
 			$interfaces[] = 'UniformResourceIdentifiable';
 		}
 
-		if ( $tax_object->hierarchical ) {
+		if ( $taxonomy_object->hierarchical ) {
 			$interfaces[] = 'HierarchicalTermNode';
 		}
 
-		if ( true === $tax_object->show_in_nav_menus ) {
+		if ( true === $taxonomy_object->show_in_nav_menus ) {
 			$interfaces[] = 'MenuItemLinkable';
 		}
 
-		$single_name = $tax_object->graphql_single_name;
+		$single_name = $taxonomy_object->graphql_single_name;
 		register_graphql_object_type(
 			$single_name,
 			[
@@ -52,16 +52,7 @@ class TermObject {
 					],
 					'uri'               => [
 						'resolve' => function ( $term, $args, $context, $info ) {
-							$url = $term->link;
-							if ( ! empty( $url ) ) {
-								$parsed = wp_parse_url( $url );
-								if ( isset( $parsed ) ) {
-									$path  = isset( $parsed['path'] ) ? $parsed['path'] : '';
-									$query = isset( $parsed['query'] ) ? ( '?' . $parsed['query'] ) : '';
-									return trim( $path . $query );
-								}
-							}
-							return '';
+							return ! empty( $term->link ) ? str_ireplace( home_url(), '', $term->link ) : '';
 						},
 					],
 				],

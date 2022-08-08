@@ -7,7 +7,6 @@ use GraphQL\Type\Definition\ResolveInfo;
 use GraphQLRelay\Relay;
 use WPGraphQL\AppContext;
 use WPGraphQL\Data\DataSource;
-use WPGraphQL\Utils\Utils;
 
 /**
  * Class CommentRestore
@@ -83,20 +82,27 @@ class CommentRestore {
 	 */
 	public static function mutate_and_get_payload() {
 		return function ( $input ) {
-			// Stop now if a user isn't allowed to delete the comment.
+			/**
+			 * Get the ID from the global ID
+			 */
+			$id_parts = Relay::fromGlobalId( $input['id'] );
+
+			/**
+			 * Get the post object before deleting it
+			 */
+			$comment_id = absint( $id_parts['id'] );
+
+			/**
+			 * Stop now if a user isn't allowed to delete the comment
+			 */
 			if ( ! current_user_can( 'moderate_comments' ) ) {
 				throw new UserError( __( 'Sorry, you are not allowed to restore this comment.', 'wp-graphql' ) );
 			}
 
-			// Get the database ID for the comment.
-			$comment_id = Utils::get_database_id_from_id( $input['id'] );
-
-			if ( false === $comment_id ) {
-				throw new UserError( __( 'Sorry, you are not allowed to restore this comment.', 'wp-graphql' ) );
-			}
-
-			// Delete the comment.
-			wp_untrash_comment( $comment_id );
+			/**
+			 * Delete the comment
+			 */
+			wp_untrash_comment( $id_parts['id'] );
 
 			$comment = get_comment( $comment_id );
 

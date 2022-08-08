@@ -4,9 +4,7 @@ namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 
 use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
 /**
- * Stream decorator that prevents a stream from being seeked.
- *
- * @final
+ * Stream decorator that prevents a stream from being seeked
  */
 class NoSeekStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {

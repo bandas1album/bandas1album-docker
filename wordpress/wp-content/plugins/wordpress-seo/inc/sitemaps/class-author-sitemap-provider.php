@@ -6,7 +6,6 @@
  */
 
 use Yoast\WP\SEO\Helpers\Author_Archive_Helper;
-use Yoast\WP\SEO\Helpers\Wordpress_Helper;
 
 /**
  * Sitemap provider for author archives.
@@ -65,18 +64,23 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		}
 
 		$index      = [];
+		$page       = 1;
 		$user_pages = array_chunk( $users, $max_entries );
 
-		foreach ( $user_pages as $page_counter => $users_page ) {
+		if ( count( $user_pages ) === 1 ) {
+			$page = '';
+		}
 
-			$current_page = ( $page_counter === 0 ) ? '' : ( $page_counter + 1 );
+		foreach ( $user_pages as $users_page ) {
 
 			$user_id = array_shift( $users_page ); // Time descending, first user on page is most recently updated.
 			$user    = get_user_by( 'id', $user_id );
 			$index[] = [
-				'loc'     => WPSEO_Sitemaps_Router::get_base_url( 'author-sitemap' . $current_page . '.xml' ),
+				'loc'     => WPSEO_Sitemaps_Router::get_base_url( 'author-sitemap' . $page . '.xml' ),
 				'lastmod' => ( $user->_yoast_wpseo_profile_updated ) ? YoastSEO()->helpers->date->format_timestamp( $user->_yoast_wpseo_profile_updated ) : null,
 			];
+
+			++$page;
 		}
 
 		return $index;
@@ -94,7 +98,7 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		global $wpdb;
 
 		$defaults = [
-			'capability' => [ 'edit_posts' ],
+			'who'        => 'authors',
 			'meta_key'   => '_yoast_wpseo_profile_updated',
 			'orderby'    => 'meta_value_num',
 			'order'      => 'DESC',
@@ -120,17 +124,8 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 			],
 		];
 
-		$wordpress_helper  = new Wordpress_Helper();
-		$wordpress_version = $wordpress_helper->get_wordpress_version();
-
-		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $wordpress_version, '5.8.99', '<' ) ) {
-			$defaults['who'] = 'authors';
-			unset( $defaults['capability'] );
-		}
-
 		if ( WPSEO_Options::get( 'noindex-author-noposts-wpseo', true ) ) {
-			unset( $defaults['who'], $defaults['capability'] ); // Otherwise it cancels out next argument.
+			$defaults['who']                 = ''; // Otherwise it cancels out next argument.
 			$author_archive                  = new Author_Archive_Helper();
 			$defaults['has_published_posts'] = $author_archive->get_author_archive_post_types();
 		}
@@ -218,7 +213,7 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	protected function update_user_meta() {
 
 		$user_criteria = [
-			'capability' => [ 'edit_posts' ],
+			'who'        => 'authors',
 			'meta_query' => [
 				[
 					'key'     => '_yoast_wpseo_profile_updated',
@@ -226,17 +221,7 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 				],
 			],
 		];
-
-		$wordpress_helper  = new Wordpress_Helper();
-		$wordpress_version = $wordpress_helper->get_wordpress_version();
-
-		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $wordpress_version, '5.8.99', '<' ) ) {
-			$user_criteria['who'] = 'authors';
-			unset( $user_criteria['capability'] );
-		}
-
-		$users = get_users( $user_criteria );
+		$users         = get_users( $user_criteria );
 
 		$time = time();
 

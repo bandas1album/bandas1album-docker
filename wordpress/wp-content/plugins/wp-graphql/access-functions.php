@@ -516,9 +516,8 @@ function graphql_debug( $message, $config = [] ) {
 		?
 		array_values(
 			array_map(
-				static function ( $trace ) {
-					$line = isset( $trace['line'] ) ? absint( $trace['line'] ) : 0;
-					return sprintf( '%s:%d', $trace['file'], $line );
+				function ( $trace ) {
+					return sprintf( '%s:%d', $trace['file'], $trace['line'] );
 				},
 				array_filter( // Filter out steps without files
 					$debug_backtrace,

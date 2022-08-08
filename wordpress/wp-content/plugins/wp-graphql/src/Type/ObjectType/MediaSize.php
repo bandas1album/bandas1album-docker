@@ -64,11 +64,13 @@ class MediaSize {
 
 							if ( ! empty( $image['ID'] ) ) {
 								$src = wp_get_attachment_image_src( absint( $image['ID'] ), $image['name'] );
-								if ( ! empty( $src ) ) {
+								if ( is_array( $src ) && isset( $src[0] ) && ! empty( $src[0] ) ) {
 									$src_url = $src[0];
 								}
-							} elseif ( ! empty( $image['file'] ) ) {
-								$src_url = $image['file'];
+							} else {
+								if ( ! empty( $image['file'] ) ) {
+									$src_url = $image['file'];
+								}
 							}
 
 							return $src_url;

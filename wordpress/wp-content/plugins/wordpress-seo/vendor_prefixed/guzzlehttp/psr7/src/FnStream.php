@@ -8,8 +8,6 @@ use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
  *
  * Allows for easy testing and extension of a provided stream without needing
  * to create a concrete class for a simple extension point.
- *
- * @final
  */
 class FnStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {
@@ -30,7 +28,6 @@ class FnStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
     }
     /**
      * Lazily determine which methods are not implemented.
-     *
      * @throws \BadMethodCallException
      */
     public function __get($name)
@@ -48,7 +45,6 @@ class FnStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
     }
     /**
      * An unserialize would allow the __destruct to run when the unserialized value goes out of scope.
-     *
      * @throws \LogicException
      */
     public function __wakeup()

@@ -16,6 +16,8 @@ class Taxonomy {
 	 */
 	public static function register_type() {
 
+		$allowed_post_types = \WPGraphQL::get_allowed_post_types();
+
 		register_graphql_object_type(
 			'Taxonomy',
 			[

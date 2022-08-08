@@ -119,7 +119,7 @@ class Post extends Model {
 		 * Set the data as the Post object
 		 */
 		$this->data             = $post;
-		$this->post_type_object = get_post_type_object( $post->post_type );
+		$this->post_type_object = isset( $post->post_type ) ? get_post_type_object( $post->post_type ) : null;
 
 		/**
 		 * If the post type is 'revision', we need to get the post_type_object
@@ -187,7 +187,7 @@ class Post extends Model {
 		 * might be applied when resolving fields can rely on global post and
 		 * post data being set up.
 		 */
-		if ( $this->data instanceof WP_Post ) {
+		if ( ! empty( $this->data ) ) {
 
 			$id        = $this->data->ID;
 			$post_type = $this->data->post_type;
@@ -293,7 +293,7 @@ class Post extends Model {
 		 * so that we can check access rights of the parent post. Revision access is inherit
 		 * to the Parent it is a revision of.
 		 */
-		if ( 'revision' === $this->data->post_type ) {
+		if ( isset( $this->data->post_type ) && 'revision' === $this->data->post_type ) {
 
 			// Get the post
 			$parent_post = get_post( $this->data->post_parent );
@@ -328,7 +328,7 @@ class Post extends Model {
 		/**
 		 * Published content is public, not private
 		 */
-		if ( 'publish' === $this->data->post_status && $this->post_type_object && ( true === $this->post_type_object->public || true === $this->post_type_object->publicly_queryable ) ) {
+		if ( 'publish' === $this->data->post_status ) {
 			return false;
 		}
 
@@ -346,12 +346,12 @@ class Post extends Model {
 
 		$post_type_object = $this->post_type_object;
 
-		if ( ! $post_type_object ) {
-			return true;
+		if ( empty( $post_object ) ) {
+			$post_object = $this->data;
 		}
 
-		if ( ! $post_object ) {
-			$post_object = $this->data;
+		if ( empty( $post_object ) ) {
+			return true;
 		}
 
 		/**
@@ -374,7 +374,7 @@ class Post extends Model {
 		 * mark the post as private
 		 */
 
-		if ( empty( $post_type_object->name ) || ! in_array( $post_type_object->name, \WPGraphQL::get_allowed_post_types(), true ) ) {
+		if ( empty( $post_type_object ) || empty( $post_type_object->name ) || ! in_array( $post_type_object->name, \WPGraphQL::get_allowed_post_types(), true ) ) {
 			return true;
 		}
 
@@ -390,6 +390,10 @@ class Post extends Model {
 			}
 
 			$parent_post_type_obj = $post_type_object;
+
+			if ( empty( $parent_post_type_obj ) ) {
+				return true;
+			}
 
 			if ( 'private' === $parent->post_status ) {
 				$cap = isset( $parent_post_type_obj->cap->read_private_posts ) ? $parent_post_type_obj->cap->read_private_posts : 'read_private_posts';
@@ -435,10 +439,10 @@ class Post extends Model {
 					return ( ! empty( $this->data->post_type ) && ! empty( $this->databaseId ) ) ? Relay::toGlobalId( 'post', (string) $this->databaseId ) : null;
 				},
 				'databaseId'                => function () {
-					return ! empty( $this->data->ID ) ? absint( $this->data->ID ) : null;
+					return isset( $this->data->ID ) ? absint( $this->data->ID ) : null;
 				},
 				'post_type'                 => function () {
-					return ! empty( $this->data->post_type ) ? $this->data->post_type : null;
+					return isset( $this->data->post_type ) ? $this->data->post_type : null;
 				},
 				'authorId'                  => function () {
 
@@ -450,7 +454,7 @@ class Post extends Model {
 						$id = (int) $parent_post->post_author;
 
 					} else {
-						$id = ! empty( $this->data->post_author ) ? (int) $this->data->post_author : null;
+						$id = isset( $this->data->post_author ) ? (int) $this->data->post_author : null;
 					}
 
 					return Relay::toGlobalId( 'user', (string) $id );
@@ -465,7 +469,7 @@ class Post extends Model {
 						return $parent_post->post_author;
 					}
 
-					return ! empty( $this->data->post_author ) ? (int) $this->data->post_author : null;
+					return isset( $this->data->post_author ) ? $this->data->post_author : null;
 
 				},
 				'date'                      => function () {
@@ -531,7 +535,7 @@ class Post extends Model {
 				},
 				'template'                  => function () {
 
-					$registered_templates = wp_get_theme()->get_page_templates( null, $this->data->post_type );
+					$registered_templates = wp_get_theme()->get_post_templates();
 
 					$template = [
 						'__typename'   => 'DefaultTemplate',
@@ -546,9 +550,9 @@ class Post extends Model {
 							return $template;
 						}
 
-						$registered_templates = wp_get_theme()->get_page_templates( $parent_post );
+						$post_type = $parent_post->post_type;
 
-						if ( empty( $registered_templates ) ) {
+						if ( ! isset( $registered_templates[ $post_type ] ) ) {
 							return $template;
 						}
 						$set_template  = get_post_meta( $this->parentDatabaseId, '_wp_page_template', true );
@@ -565,7 +569,7 @@ class Post extends Model {
 						$template_name = ! empty( $template_name ) ? $template_name : 'Default';
 
 					} else {
-						if ( empty( $registered_templates ) ) {
+						if ( ! isset( $registered_templates[ $this->data->post_type ] ) ) {
 							return $template;
 						}
 						$post_type     = $this->data->post_type;
@@ -575,8 +579,8 @@ class Post extends Model {
 						$template_name = ! empty( $template_name ) ? $template_name : 'Default';
 					}
 
-					if ( ! empty( $registered_templates[ $set_template ] ) ) {
-						$name          = ucwords( $registered_templates[ $set_template ] );
+					if ( ! empty( $template_name ) && ! empty( $registered_templates[ $post_type ][ $set_template ] ) ) {
+						$name          = ucwords( $registered_templates[ $post_type ][ $set_template ] );
 						$replaced_name = preg_replace( '/[^\w]/', '', $name );
 
 						if ( ! empty( $replaced_name ) ) {
@@ -588,7 +592,7 @@ class Post extends Model {
 
 						$template = [
 							'__typename'   => $name,
-							'templateName' => ucwords( $registered_templates[ $set_template ] ),
+							'templateName' => ucwords( $registered_templates[ $post_type ][ $set_template ] ),
 						];
 					}
 
@@ -632,7 +636,7 @@ class Post extends Model {
 				'pinged'                    => function () {
 					$punged = get_pung( $this->databaseId );
 
-					return ! empty( implode( ',', (array) $punged ) ) ? $punged : null;
+					return ! empty( $punged ) ? implode( ',', (array) $punged ) : null;
 				},
 				'modified'                  => function () {
 					return ! empty( $this->data->post_modified ) && '0000-00-00 00:00:00' !== $this->data->post_modified ? Utils::prepare_date_response( $this->data->post_modified ) : null;
@@ -659,7 +663,7 @@ class Post extends Model {
 					}
 
 					$edit_lock       = get_post_meta( $this->data->ID, '_edit_lock', true );
-					$edit_lock_parts = ! empty( $edit_lock ) ? explode( ':', $edit_lock ) : null;
+					$edit_lock_parts = explode( ':', $edit_lock );
 
 					return ! empty( $edit_lock_parts ) ? $edit_lock_parts : null;
 				},
@@ -773,10 +777,6 @@ class Post extends Model {
 						}
 					}
 
-					if ( ! post_type_supports( $this->data->post_type, 'revisions' ) && 'draft' === $this->data->post_status ) {
-						return true;
-					}
-
 					return false;
 				},
 				'isSticky'                  => function () {
@@ -818,7 +818,7 @@ class Post extends Model {
 					'sourceUrl'           => function () {
 						$source_url = wp_get_attachment_image_src( $this->data->ID, 'full' );
 
-						return ! empty( $source_url ) ? $source_url[0] : null;
+						return ! empty( $source_url ) && isset( $source_url[0] ) ? $source_url[0] : null;
 					},
 					'sourceUrlsBySize'    => function () {
 						$sizes = get_intermediate_image_sizes();
@@ -826,7 +826,7 @@ class Post extends Model {
 						if ( ! empty( $sizes ) && is_array( $sizes ) ) {
 							foreach ( $sizes as $size ) {
 								$img_src       = wp_get_attachment_image_src( $this->data->ID, $size );
-								$urls[ $size ] = ! empty( $img_src ) ? $img_src[0] : null;
+								$urls[ $size ] = ! empty( $img_src ) && isset( $img_src[0] ) ? $img_src[0] : null;
 							}
 						}
 

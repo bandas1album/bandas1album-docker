@@ -720,9 +720,9 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 
 		if ( ( is_array( $records ) && $records !== [] ) && ( is_array( $columns ) && $columns !== [] ) ) {
 
-			foreach ( $records as $record ) {
+			foreach ( $records as $rec ) {
 
-				echo '<tr id="', esc_attr( 'record_' . $record->ID ), '">';
+				echo '<tr id="', esc_attr( 'record_' . $rec->ID ), '">';
 
 				foreach ( $columns as $column_name => $column_display_name ) {
 
@@ -733,10 +733,10 @@ class WPSEO_Bulk_List_Table extends WP_List_Table {
 
 					$attributes = $this->column_attributes( $column_name, $hidden, $classes, $column_display_name );
 
-					$column_value = $this->parse_column( $column_name, $record );
+					$column_value = $this->parse_column( $column_name, $rec );
 
 					if ( method_exists( $this, 'parse_page_specific_column' ) && empty( $column_value ) ) {
-						$column_value = $this->parse_page_specific_column( $column_name, $record, $attributes );
+						$column_value = $this->parse_page_specific_column( $column_name, $rec, $attributes );
 					}
 
 					if ( ! empty( $column_value ) ) {

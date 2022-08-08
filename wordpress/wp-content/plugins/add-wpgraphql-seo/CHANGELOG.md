@@ -5,45 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.18.0] - 2022-06-10
-
-### Added
-
--   Enable SEO field for contentNode and nodeByUri
-
-## [4.17.0] - 2022-03-29
-
-### Changed
-
--   Ensure placeholders are replaced (thanks @BronsonQuick)
--   Update option names that are deprecated (thanks @BronsonQuick)
-
-## [4.16.2] - 2022-03-23
-
-### Changed
-
--   Image optimize perf (thanks @kent1D )
--   Add guard against undefined user object (thanks @rodrigo-arias)
--   PostTypeSEO improvements: More defensive programming (thanks @matthewgrzegorczyk)
-
-## [4.16.1] - 2022-01-23
-
-### Changed
-
--   Guarding against undefined values
-
-## [4.16.0] - 2021-10-19
-
-### Added
-
--   Added extra user fields
-
-## [4.15.1] - 2021-09-11
-
-### Changed
-
--   Fix canonical url for taxonomies
-
 ## [4.15.0] - 2021-07-15
 
 ### Changed

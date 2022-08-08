@@ -83,7 +83,6 @@ use WPGraphQL\Type\Enum\PostObjectsConnectionDateColumnEnum;
 use WPGraphQL\Type\Enum\PostObjectsConnectionOrderbyEnum;
 use WPGraphQL\Type\Enum\PostStatusEnum;
 use WPGraphQL\Type\Enum\ContentTypeEnum;
-use WPGraphQL\Type\Enum\PluginStatusEnum;
 use WPGraphQL\Type\Enum\RelationEnum;
 use WPGraphQL\Type\Enum\TaxonomyEnum;
 use WPGraphQL\Type\Enum\TermObjectsConnectionOrderbyEnum;
@@ -226,7 +225,7 @@ class TypeRegistry {
 		/**
 		 * Fire an action as the Type registry is being initiated
 		 *
-		 * @param TypeRegistry $registry Instance of the TypeRegistry
+		 * @param TypeRegistry $this Instance of the TypeRegistry
 		 */
 		do_action( 'init_graphql_type_registry', $this );
 
@@ -238,7 +237,6 @@ class TypeRegistry {
 	 * @param TypeRegistry $type_registry
 	 *
 	 * @return void
-	 * @throws Exception
 	 */
 	public function init_type_registry( TypeRegistry $type_registry ) {
 
@@ -246,7 +244,7 @@ class TypeRegistry {
 		 * Fire an action as the type registry is initialized. This executes
 		 * before the `graphql_register_types` action to allow for earlier hooking
 		 *
-		 * @param TypeRegistry $registry Instance of the TypeRegistry
+		 * @param TypeRegistry $this Instance of the TypeRegistry
 		 */
 		do_action( 'graphql_register_initial_types', $type_registry );
 
@@ -281,7 +279,6 @@ class TypeRegistry {
 		Avatar::register_type();
 		Comment::register_type();
 		CommentAuthor::register_type();
-		ContentTemplate::register_content_template_types();
 		EnqueuedStylesheet::register_type();
 		EnqueuedScript::register_type();
 		MediaDetails::register_type();
@@ -293,7 +290,7 @@ class TypeRegistry {
 		Plugin::register_type();
 		ContentType::register_type();
 		PostTypeLabelDetails::register_type();
-		Settings::register_type( $this );
+		Settings::register_type();
 		Taxonomy::register_type();
 		Theme::register_type();
 		User::register_type();
@@ -311,7 +308,6 @@ class TypeRegistry {
 		MenuNodeIdTypeEnum::register_type();
 		MimeTypeEnum::register_type();
 		OrderEnum::register_type();
-		PluginStatusEnum::register_type();
 		PostObjectFieldFormatEnum::register_type();
 		PostObjectsConnectionDateColumnEnum::register_type();
 		PostObjectsConnectionOrderbyEnum::register_type();
@@ -364,86 +360,159 @@ class TypeRegistry {
 		UserDelete::register_mutation();
 		UserUpdate::register_mutation();
 		UserRegister::register_mutation();
-		UpdateSettings::register_mutation( $this );
+		UpdateSettings::register_mutation();
+
+		$registered_page_templates = wp_get_theme()->get_post_templates();
+
+		$page_templates['default'] = 'DefaultTemplate';
+
+		if ( ! empty( $registered_page_templates ) && is_array( $registered_page_templates ) ) {
+
+			foreach ( $registered_page_templates as $post_type_templates ) {
+				// Post templates are returned as an array of arrays. PHPStan believes they're returned as
+				// an array of strings and believes this will always evaluate to false.
+				// We should ignore the phpstan check here.
+				// @phpstan-ignore-next-line
+				if ( ! empty( $post_type_templates ) && is_array( $post_type_templates ) ) {
+					foreach ( $post_type_templates as $file => $name ) {
+						$page_templates[ $file ] = $name;
+					}
+				}
+			}
+		}
+
+		if ( ! empty( $page_templates ) && is_array( $page_templates ) ) {
+
+			foreach ( $page_templates as $file => $name ) {
+				$name          = ucwords( $name );
+				$replaced_name = preg_replace( '/[^\w]/', '', $name );
+
+				if ( ! empty( $replaced_name ) ) {
+					$name = $replaced_name;
+				}
+
+				if ( preg_match( '/^\d/', $name ) || false === strpos( strtolower( $name ), 'template' ) ) {
+					$name = 'Template_' . $name;
+				}
+				$template_type_name = $name;
+
+				register_graphql_object_type(
+					$template_type_name,
+					[
+						'interfaces'      => [ 'ContentTemplate' ],
+						// Translators: Placeholder is the name of the GraphQL Type in the Schema
+						'description'     => __( 'The template assigned to the node', 'wp-graphql' ),
+						'fields'          => [
+							'templateName' => [
+								'resolve' => function ( $template ) {
+									return isset( $template['templateName'] ) ? $template['templateName'] : null;
+								},
+							],
+						],
+						'eagerlyLoadType' => true,
+					]
+				);
+
+			}
+		}
 
 		/**
 		 * Register PostObject types based on post_types configured to show_in_graphql
-		 *
-		 * @var \WP_Post_Type[] $allowed_post_types
 		 */
-		$allowed_post_types = \WPGraphQL::get_allowed_post_types( 'objects' );
+		$allowed_post_types = \WPGraphQL::get_allowed_post_types();
+		if ( ! empty( $allowed_post_types ) && is_array( $allowed_post_types ) ) {
+			foreach ( $allowed_post_types as $post_type ) {
 
-		/** @var \WP_Taxonomy[] $allowed_taxonomies */
-		$allowed_taxonomies = \WPGraphQL::get_allowed_taxonomies( 'objects' );
+				$post_type_object = get_post_type_object( $post_type );
 
-		foreach ( $allowed_post_types as $post_type_object ) {
-			PostObject::register_post_object_types( $post_type_object, $type_registry );
-
-			/**
-			 * Mutations for attachments are handled differently
-			 * because they require different inputs
-			 */
-			if ( 'attachment' !== $post_type_object->name ) {
-
-				/**
-				 * Revisions are created behind the scenes as a side effect of post updates,
-				 * they aren't created manually.
-				 */
-				if ( 'revision' !== $post_type_object->name ) {
-					PostObjectCreate::register_mutation( $post_type_object );
-					PostObjectUpdate::register_mutation( $post_type_object );
+				if ( empty( $post_type_object ) ) {
+					return;
 				}
 
-				PostObjectDelete::register_mutation( $post_type_object );
+				PostObject::register_post_object_types( $post_type_object, $type_registry );
 
-			}
+				/**
+				 * Mutations for attachments are handled differently
+				 * because they require different inputs
+				 */
+				if ( 'attachment' !== $post_type_object->name ) {
 
-			foreach ( $allowed_taxonomies as $tax_object ) {
-				// If the taxonomy is in the array of taxonomies registered to the post_type
-				if ( in_array( $tax_object->name, get_object_taxonomies( $post_type_object->name ), true ) ) {
-					register_graphql_input_type(
-						$post_type_object->graphql_single_name . ucfirst( $tax_object->graphql_plural_name ) . 'NodeInput',
-						[
-							'description' => sprintf( __( 'List of %1$s to connect the %2$s to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists.', 'wp-graphql' ), $tax_object->graphql_plural_name, $post_type_object->graphql_single_name ),
-							'fields'      => [
-								'id'          => [
-									'type'        => 'Id',
-									'description' => sprintf( __( 'The ID of the %1$s. If present, this will be used to connect to the %2$s. If no existing %1$s exists with this ID, no connection will be made.', 'wp-graphql' ), $tax_object->graphql_single_name, $post_type_object->graphql_single_name ),
-								],
-								'slug'        => [
-									'type'        => 'String',
-									'description' => sprintf( __( 'The slug of the %1$s. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation.', 'wp-graphql' ), $tax_object->graphql_single_name ),
-								],
-								'description' => [
-									'type'        => 'String',
-									'description' => sprintf( __( 'The description of the %1$s. This field is used to set a description of the %1$s if a new one is created during the mutation.', 'wp-graphql' ), $tax_object->graphql_single_name ),
-								],
-								'name'        => [
-									'type'        => 'String',
-									'description' => sprintf( __( 'The name of the %1$s. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field.', 'wp-graphql' ), $tax_object->graphql_single_name ),
-								],
-							],
-						]
-					);
+					/**
+					 * Revisions are created behind the scenes as a side effect of post updates,
+					 * they aren't created manually.
+					 */
+					if ( 'revision' !== $post_type_object->name ) {
+						PostObjectCreate::register_mutation( $post_type_object );
+						PostObjectUpdate::register_mutation( $post_type_object );
+					}
 
-					register_graphql_input_type(
-						ucfirst( $post_type_object->graphql_single_name ) . ucfirst( $tax_object->graphql_plural_name ) . 'Input',
-						[
-							'description' => sprintf( __( 'Set relationships between the %1$s to %2$s', 'wp-graphql' ), $post_type_object->graphql_single_name, $tax_object->graphql_plural_name ),
-							'fields'      => [
-								'append' => [
-									'type'        => 'Boolean',
-									'description' => sprintf( __( 'If true, this will append the %1$s to existing related %2$s. If false, this will replace existing relationships. Default true.', 'wp-graphql' ), $tax_object->graphql_single_name, $tax_object->graphql_plural_name ),
-								],
-								'nodes'  => [
-									'type'        => [
-										'list_of' => $post_type_object->graphql_single_name . ucfirst( $tax_object->graphql_plural_name ) . 'NodeInput',
+					PostObjectDelete::register_mutation( $post_type_object );
+
+				}
+
+				$allowed_taxonomies = \WPGraphQL::get_allowed_taxonomies();
+				if ( ! empty( $allowed_taxonomies ) && is_array( $allowed_taxonomies ) ) {
+					foreach ( $allowed_taxonomies as $taxonomy ) {
+
+						$tax_object = get_taxonomy( $taxonomy );
+
+						if ( ! $tax_object instanceof \WP_Taxonomy ) {
+							throw new \GraphQL\Error\InvariantViolation(
+								sprintf(
+								/* translators: %s will replaced with the registered type */
+									__( 'The %s taxonomy cannot be found.', 'wp-graphql' ),
+									$taxonomy
+								)
+							);
+						}
+
+						// If the taxonomy is in the array of taxonomies registered to the post_type
+						if ( in_array( $taxonomy, get_object_taxonomies( $post_type_object->name ), true ) ) {
+							register_graphql_input_type(
+								$post_type_object->graphql_single_name . ucfirst( $tax_object->graphql_plural_name ) . 'NodeInput',
+								[
+									'description' => sprintf( __( 'List of %1$s to connect the %2$s to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists.', 'wp-graphql' ), $tax_object->graphql_plural_name, $post_type_object->graphql_single_name ),
+									'fields'      => [
+										'id'          => [
+											'type'        => 'Id',
+											'description' => sprintf( __( 'The ID of the %1$s. If present, this will be used to connect to the %2$s. If no existing %1$s exists with this ID, no connection will be made.', 'wp-graphql' ), $tax_object->graphql_single_name, $post_type_object->graphql_single_name ),
+										],
+										'slug'        => [
+											'type'        => 'String',
+											'description' => sprintf( __( 'The slug of the %1$s. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation.', 'wp-graphql' ), $tax_object->graphql_single_name ),
+										],
+										'description' => [
+											'type'        => 'String',
+											'description' => sprintf( __( 'The description of the %1$s. This field is used to set a description of the %1$s if a new one is created during the mutation.', 'wp-graphql' ), $tax_object->graphql_single_name ),
+										],
+										'name'        => [
+											'type'        => 'String',
+											'description' => sprintf( __( 'The name of the %1$s. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field.', 'wp-graphql' ), $tax_object->graphql_single_name ),
+										],
 									],
-									'description' => __( 'The input list of items to set.', 'wp-graphql' ),
-								],
-							],
-						]
-					);
+								]
+							);
+
+							register_graphql_input_type(
+								ucfirst( $post_type_object->graphql_single_name ) . ucfirst( $tax_object->graphql_plural_name ) . 'Input',
+								[
+									'description' => sprintf( __( 'Set relationships between the %1$s to %2$s', 'wp-graphql' ), $post_type_object->graphql_single_name, $tax_object->graphql_plural_name ),
+									'fields'      => [
+										'append' => [
+											'type'        => 'Boolean',
+											'description' => sprintf( __( 'If true, this will append the %1$s to existing related %2$s. If false, this will replace existing relationships. Default true.', 'wp-graphql' ), $tax_object->graphql_single_name, $tax_object->graphql_plural_name ),
+										],
+										'nodes'  => [
+											'type'        => [
+												'list_of' => $post_type_object->graphql_single_name . ucfirst( $tax_object->graphql_plural_name ) . 'NodeInput',
+											],
+											'description' => __( 'The input list of items to set.', 'wp-graphql' ),
+										],
+									],
+								]
+							);
+						}
+					}
 				}
 			}
 		}
@@ -451,49 +520,51 @@ class TypeRegistry {
 		/**
 		 * Register TermObject types based on taxonomies configured to show_in_graphql
 		 */
-		foreach ( $allowed_taxonomies as $tax_object ) {
-			TermObject::register_taxonomy_object_type( $tax_object );
-			TermObjectCreate::register_mutation( $tax_object );
-			TermObjectUpdate::register_mutation( $tax_object );
-			TermObjectDelete::register_mutation( $tax_object );
+		$allowed_taxonomies = \WPGraphQL::get_allowed_taxonomies();
+		if ( ! empty( $allowed_taxonomies ) && is_array( $allowed_taxonomies ) ) {
+			foreach ( $allowed_taxonomies as $taxonomy ) {
+				$taxonomy_object = get_taxonomy( $taxonomy );
+				if ( $taxonomy_object instanceof \WP_Taxonomy ) {
+					TermObject::register_taxonomy_object_type( $taxonomy_object );
+					TermObjectCreate::register_mutation( $taxonomy_object );
+					TermObjectUpdate::register_mutation( $taxonomy_object );
+					TermObjectDelete::register_mutation( $taxonomy_object );
+				}
+			}
 		}
 
 		/**
 		 * Create the root query fields for any setting type in
 		 * the $allowed_setting_types array.
 		 */
-		$allowed_setting_types = DataSource::get_allowed_settings_by_group( $this );
-
-		/**
-		 * The url is not a registered setting for multisite, so this is a polyfill
-		 * to expose the URL to the Schema for multisite sites
-		 */
-		if ( is_multisite() ) {
-			$this->register_field( 'GeneralSettings', 'url', [
-				'type'        => 'String',
-				'description' => __( 'Site URL.', 'wp-graphql' ),
-				'resolve'     => function () {
-					return get_site_url();
-				},
-			] );
-		}
+		$allowed_setting_types = DataSource::get_allowed_settings_by_group();
 
 		if ( ! empty( $allowed_setting_types ) && is_array( $allowed_setting_types ) ) {
+
+			/**
+			 * The url is not a registered setting for multisite, so this is a polyfill
+			 * to expose the URL to the Schema for multisite sites
+			 */
+			if ( is_multisite() ) {
+				register_graphql_field( 'GeneralSettings', 'url', [
+					'type'        => 'String',
+					'description' => __( 'Site URL.', 'wp-graphql' ),
+					'resolve'     => function () {
+						return get_site_url();
+					},
+				] );
+			}
 
 			foreach ( $allowed_setting_types as $group_name => $setting_type ) {
 
 				$group_name = DataSource::format_group_name( $group_name );
-				$type_name  = SettingGroup::register_settings_group( $group_name, $group_name, $this );
-
-				if ( ! $type_name ) {
-					continue;
-				}
+				SettingGroup::register_settings_group( $group_name, $group_name );
 
 				register_graphql_field(
 					'RootQuery',
-					Utils::format_field_name( $type_name ),
+					$group_name . 'Settings',
 					[
-						'type'        => $type_name,
+						'type'        => ucfirst( $group_name ) . 'Settings',
 						'description' => sprintf( __( "Fields of the '%s' settings group", 'wp-graphql' ), ucfirst( $group_name ) . 'Settings' ),
 						'resolve'     => function () use ( $setting_type ) {
 							return $setting_type;
@@ -507,7 +578,7 @@ class TypeRegistry {
 		 * Fire an action as the type registry is initialized. This executes
 		 * before the `graphql_register_types` action to allow for earlier hooking
 		 *
-		 * @param TypeRegistry $registry Instance of the TypeRegistry
+		 * @param TypeRegistry $this Instance of the TypeRegistry
 		 */
 		do_action( 'graphql_register_types', $type_registry );
 
@@ -515,7 +586,7 @@ class TypeRegistry {
 		 * Fire an action as the type registry is initialized. This executes
 		 * during the `graphql_register_types` action to allow for earlier hooking
 		 *
-		 * @param TypeRegistry $registry Instance of the TypeRegistry
+		 * @param TypeRegistry $this Instance of the TypeRegistry
 		 */
 		do_action( 'graphql_register_types_late', $type_registry );
 
@@ -598,7 +669,7 @@ class TypeRegistry {
 			return;
 		}
 
-		if ( isset( $this->types[ $this->format_key( $type_name ) ] ) || isset( $this->type_loaders[ $this->format_key( $type_name ) ] ) ) {
+		if ( isset( $this->types[ $this->format_key( $type_name ) ] ) ) {
 			graphql_debug(
 				sprintf( __( 'You cannot register duplicate Types to the Schema. The Type \'%1$s\' already exists in the Schema. Make sure to give new Types a unique name.', 'wp-graphql' ), $type_name ),
 				[
@@ -744,8 +815,7 @@ class TypeRegistry {
 	 *
 	 * @param string $type_name The name of the Type to get from the registry
 	 *
-	 * @return mixed
-	 * |null
+	 * @return mixed|null
 	 */
 	public function get_type( string $type_name ) {
 
@@ -797,6 +867,7 @@ class TypeRegistry {
 	 */
 	public function prepare_fields( array $fields, string $type_name ) {
 		$prepared_fields = [];
+		$prepared_field  = null;
 		if ( ! empty( $fields ) && is_array( $fields ) ) {
 			foreach ( $fields as $field_name => $field_config ) {
 				if ( is_array( $field_config ) && isset( $field_config['type'] ) ) {
@@ -983,7 +1054,7 @@ class TypeRegistry {
 	 *
 	 * @return void
 	 */
-	public function deregister_field( string $type_name, string $field_name ) {
+	public function deregister_field( $type_name, $field_name ) {
 
 		add_filter(
 			'graphql_' . $type_name . '_fields',
@@ -1025,7 +1096,7 @@ class TypeRegistry {
 	 * @return void
 	 * @throws Exception
 	 */
-	public function register_mutation( string $mutation_name, array $config ) {
+	public function register_mutation( $mutation_name, $config ) {
 
 		$output_fields = [
 			'clientMutationId' => [
@@ -1070,7 +1141,7 @@ class TypeRegistry {
 		$this->register_field(
 			'rootMutation',
 			$mutation_name,
-			array_merge( $config, [
+			[
 				'description' => sprintf( __( 'The payload for the %s mutation', 'wp-graphql' ), $mutation_name ),
 				'args'        => [
 					'input' => [
@@ -1086,20 +1157,12 @@ class TypeRegistry {
 						// Translators: The placeholder is the name of the mutation
 						throw new Exception( sprintf( __( 'The resolver for the mutation %s is not callable', 'wp-graphql' ), $mutation_name ) );
 					}
-
-					$filtered_input = apply_filters( 'graphql_mutation_input', $args['input'], $context, $info, $mutation_name );
-
-					$payload = $mutateAndGetPayload( $filtered_input, $context, $info );
-
-					do_action( 'graphql_mutation_response', $payload, $filtered_input, $args['input'], $context, $info, $mutation_name );
-
-					if ( isset( $args['input']['clientMutationId'] ) && ! empty( $args['input']['clientMutationId'] ) ) {
-						$payload['clientMutationId'] = $args['input']['clientMutationId'];
-					}
+					$payload                     = call_user_func( $mutateAndGetPayload, $args['input'], $context, $info );
+					$payload['clientMutationId'] = $args['input']['clientMutationId'];
 
 					return $payload;
 				},
-			])
+			]
 		);
 
 	}

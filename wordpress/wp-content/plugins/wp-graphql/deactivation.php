@@ -18,8 +18,6 @@ function graphql_deactivation_callback() {
 
 /**
  * Delete data on deactivation
- *
- * @return void
  */
 function delete_graphql_data() {
 

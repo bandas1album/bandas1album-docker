@@ -7,8 +7,6 @@ use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
  * Reads from multiple streams, one after the other.
  *
  * This is a read-only stream decorator.
- *
- * @final
  */
 class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
 {
@@ -56,7 +54,7 @@ class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
     }
     public function getContents()
     {
-        return \YoastSEO_Vendor\GuzzleHttp\Psr7\Utils::copyToString($this);
+        return copy_to_string($this);
     }
     /**
      * Closes each attached stream.
@@ -87,7 +85,6 @@ class AppendStream implements \YoastSEO_Vendor\Psr\Http\Message\StreamInterface
             $stream->detach();
         }
         $this->streams = [];
-        return null;
     }
     public function tell()
     {

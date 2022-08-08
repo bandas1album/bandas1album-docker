@@ -91,7 +91,7 @@ var Arrive = (function(window, $, undefined) {
                         toElementsArray: function (elements) {
                                 // check if object is an array (or array like object)
                                 // Note: window object has .length property but it's not array of elements so don't consider it an array
-                                if (typeof elements !== 'undefined' && (typeof elements.length !== 'number' || elements === window)) {
+                                if (typeof elements !== "undefined" && (typeof elements.length !== "number" || elements === window)) {
                                         elements = [elements];
                                 }
                                 return elements;
@@ -443,6 +443,9 @@ var Arrive = (function(window, $, undefined) {
                 exposeUnbindApi(leaveEvents, exposeTo, "unbindLeave");
         }
 
+        if ($) {
+                exposeApi($.fn);
+        }
         exposeApi(HTMLElement.prototype);
         exposeApi(NodeList.prototype);
         exposeApi(HTMLCollection.prototype);
@@ -456,7 +459,7 @@ var Arrive = (function(window, $, undefined) {
 
         return Arrive;
 
-})(window, null, undefined);
+})(window, typeof jQuery === 'undefined' ? null : jQuery, undefined);
 
 var ewww_webp_supported = false;
 // webp detection adapted from https://developers.google.com/speed/webp/faq#how_can_i_detect_browser_support_using_javascript

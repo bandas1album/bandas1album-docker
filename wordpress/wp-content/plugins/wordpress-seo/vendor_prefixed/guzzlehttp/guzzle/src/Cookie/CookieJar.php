@@ -78,8 +78,8 @@ class CookieJar implements \YoastSEO_Vendor\GuzzleHttp\Cookie\CookieJarInterface
      */
     public function getCookieByName($name)
     {
-        // don't allow a non string name
-        if ($name === null || !\is_scalar($name)) {
+        // don't allow a null name
+        if ($name === null) {
             return null;
         }
         foreach ($this->cookies as $cookie) {
@@ -87,7 +87,6 @@ class CookieJar implements \YoastSEO_Vendor\GuzzleHttp\Cookie\CookieJarInterface
                 return $cookie;
             }
         }
-        return null;
     }
     public function toArray()
     {
@@ -101,7 +100,7 @@ class CookieJar implements \YoastSEO_Vendor\GuzzleHttp\Cookie\CookieJarInterface
             $this->cookies = [];
             return;
         } elseif (!$path) {
-            $this->cookies = \array_filter($this->cookies, function (\YoastSEO_Vendor\GuzzleHttp\Cookie\SetCookie $cookie) use($domain) {
+            $this->cookies = \array_filter($this->cookies, function (\YoastSEO_Vendor\GuzzleHttp\Cookie\SetCookie $cookie) use($path, $domain) {
                 return !$cookie->matchesDomain($domain);
             });
         } elseif (!$name) {
@@ -187,11 +186,6 @@ class CookieJar implements \YoastSEO_Vendor\GuzzleHttp\Cookie\CookieJarInterface
                 if (0 !== \strpos($sc->getPath(), '/')) {
                     $sc->setPath($this->getCookiePathFromRequest($request));
                 }
-                if (!$sc->matchesDomain($request->getUri()->getHost())) {
-                    continue;
-                }
-                // Note: At this point `$sc->getDomain()` being a public suffix should
-                // be rejected, but we don't want to pull in the full PSL dependency.
                 $this->setCookie($sc);
             }
         }

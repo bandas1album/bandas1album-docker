@@ -690,7 +690,6 @@ p.debug-actions {
 	overflow: auto;
 	height: 300px;
 	width: 800px;
-	margin-top: 5px;
 }
 #ewww-webp-rewrite #webp-rewrite-rules {
 	background-color: white;
@@ -716,11 +715,6 @@ p#ewww-webp-rewrite-status {
 #ewwwio-easy-activate, #ewwwio-easy-deactivate, #ewwwio-easy-activate-network, #ewwwio-easy-register-network {
 	margin-top: 10px;
 }
-#ewwwio-easy-deregister {
-	vertical-align: bottom;
-	padding-left: 20px;
-	line-height: 2.15;
-}
 .ewwwio-notice {
 	background-color: white;
 	border: 1px solid #ccd0d4;
@@ -733,9 +727,6 @@ p#ewww-webp-rewrite-status {
 }
 .ewwwio-notice.notice-success {
 	border-left-color: #46b450;
-}
-#ewwwio-easy-register-failed {
-	display: none;
 }
 #ewwwio-api-activation-result, #ewwwio-easy-activation-result, #ewww-webp-rewrite-result {
 	display: none;

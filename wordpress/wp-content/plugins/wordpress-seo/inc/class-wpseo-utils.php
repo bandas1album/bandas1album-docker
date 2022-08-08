@@ -448,7 +448,7 @@ class WPSEO_Utils {
 	 * @since 1.8.0
 	 */
 	public static function clear_rewrites() {
-		update_option( 'rewrite_rules', '' );
+		delete_option( 'rewrite_rules' );
 	}
 
 	/**
@@ -589,16 +589,16 @@ class WPSEO_Utils {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param string $text String input to trim.
+	 * @param string $string String input to trim.
 	 *
 	 * @return string
 	 */
-	public static function trim_nbsp_from_string( $text ) {
-		$find = [ '&nbsp;', chr( 0xC2 ) . chr( 0xA0 ) ];
-		$text = str_replace( $find, ' ', $text );
-		$text = trim( $text );
+	public static function trim_nbsp_from_string( $string ) {
+		$find   = [ '&nbsp;', chr( 0xC2 ) . chr( 0xA0 ) ];
+		$string = str_replace( $find, ' ', $string );
+		$string = trim( $string );
 
-		return $text;
+		return $string;
 	}
 
 	/**
@@ -897,7 +897,6 @@ class WPSEO_Utils {
 			'isBreadcrumbsDisabled' => WPSEO_Options::get( 'breadcrumbs-enable', false ) !== true && ! current_theme_supports( 'yoast-seo-breadcrumbs' ),
 			// phpcs:ignore Generic.ControlStructures.DisallowYodaConditions -- Bug: squizlabs/PHP_CodeSniffer#2962.
 			'isPrivateBlog'         => ( (string) get_option( 'blog_public' ) ) === '0',
-			'news_seo_is_active'    => ( defined( 'WPSEO_NEWS_FILE' ) ),
 		];
 
 		$additional_entries = apply_filters( 'wpseo_admin_l10n', [] );
@@ -948,7 +947,7 @@ class WPSEO_Utils {
 	 * @return false|string The prepared JSON string.
 	 */
 	public static function format_json_encode( $data ) {
-		$flags = ( JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+		$flags = JSON_UNESCAPED_SLASHES;
 
 		if ( self::is_development_mode() ) {
 			$flags = ( $flags | JSON_PRETTY_PRINT );
@@ -1174,14 +1173,14 @@ class WPSEO_Utils {
 	 * @deprecated 15.2
 	 * @codeCoverageIgnore
 	 *
-	 * @param string $text String input to standardize.
+	 * @param string $string String input to standardize.
 	 *
 	 * @return string
 	 */
-	public static function standardize_whitespace( $text ) {
+	public static function standardize_whitespace( $string ) {
 		_deprecated_function( __METHOD__, 'WPSEO 15.2' );
 
-		return YoastSEO()->helpers->string->standardize_whitespace( $text );
+		return YoastSEO()->helpers->string->standardize_whitespace( $string );
 	}
 
 	/**
@@ -1248,12 +1247,12 @@ class WPSEO_Utils {
 	 * @deprecated 15.5
 	 * @codeCoverageIgnore
 	 *
-	 * @param array  $graph        The Schema graph array to output.
-	 * @param string $class_to_add The (optional) class to add to the script tag.
+	 * @param array  $graph The Schema graph array to output.
+	 * @param string $class The (optional) class to add to the script tag.
 	 *
 	 * @return bool
 	 */
-	public static function schema_output( $graph, $class_to_add = 'yoast-schema-graph' ) {
+	public static function schema_output( $graph, $class = 'yoast-schema-graph' ) {
 		_deprecated_function( __METHOD__, 'WPSEO 15.5' );
 
 		if ( ! is_array( $graph ) || empty( $graph ) ) {
@@ -1261,7 +1260,7 @@ class WPSEO_Utils {
 		}
 
 		// phpcs:ignore WordPress.Security.EscapeOutput -- Escaping happens in WPSEO_Utils::schema_tag, which should be whitelisted.
-		echo self::schema_tag( $graph, $class_to_add );
+		echo self::schema_tag( $graph, $class );
 		return true;
 	}
 
@@ -1271,12 +1270,12 @@ class WPSEO_Utils {
 	 * @deprecated 15.5
 	 * @codeCoverageIgnore
 	 *
-	 * @param array  $graph        The Schema graph array to output.
-	 * @param string $class_to_add The (optional) class to add to the script tag.
+	 * @param array  $graph The Schema graph array to output.
+	 * @param string $class The (optional) class to add to the script tag.
 	 *
 	 * @return false|string A schema blob with script tags.
 	 */
-	public static function schema_tag( $graph, $class_to_add = 'yoast-schema-graph' ) {
+	public static function schema_tag( $graph, $class = 'yoast-schema-graph' ) {
 		_deprecated_function( __METHOD__, 'WPSEO 15.5' );
 
 		if ( ! is_array( $graph ) || empty( $graph ) ) {
@@ -1287,7 +1286,7 @@ class WPSEO_Utils {
 			'@context' => 'https://schema.org',
 			'@graph'   => $graph,
 		];
-		return "<script type='application/ld+json' class='" . esc_attr( $class_to_add ) . "'>" . self::format_json_encode( $output ) . '</script>' . "\n";
+		return "<script type='application/ld+json' class='" . esc_attr( $class ) . "'>" . self::format_json_encode( $output ) . '</script>' . "\n";
 	}
 
 	/**

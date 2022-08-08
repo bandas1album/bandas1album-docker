@@ -4,9 +4,9 @@ namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 
 use InvalidArgumentException;
 use YoastSEO_Vendor\Psr\Http\Message\ServerRequestInterface;
+use YoastSEO_Vendor\Psr\Http\Message\UriInterface;
 use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
 use YoastSEO_Vendor\Psr\Http\Message\UploadedFileInterface;
-use YoastSEO_Vendor\Psr\Http\Message\UriInterface;
 /**
  * Server-side HTTP request
  *
@@ -32,7 +32,7 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
      */
     private $cookieParams = [];
     /**
-     * @var array|object|null
+     * @var null|array|object
      */
     private $parsedBody;
     /**
@@ -51,7 +51,7 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
      * @param string                               $method       HTTP method
      * @param string|UriInterface                  $uri          URI
      * @param array                                $headers      Request headers
-     * @param string|resource|StreamInterface|null $body         Request body
+     * @param string|null|resource|StreamInterface $body         Request body
      * @param string                               $version      Protocol version
      * @param array                                $serverParams Typically the $_SERVER superglobal
      */
@@ -64,10 +64,8 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
      * Return an UploadedFile instance array.
      *
      * @param array $files A array which respect $_FILES structure
-     *
-     * @return array
-     *
      * @throws InvalidArgumentException for unrecognized values
+     * @return array
      */
     public static function normalizeFiles(array $files)
     {
@@ -93,7 +91,6 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
      * delegate to normalizeNestedFileSpec() and return that return value.
      *
      * @param array $value $_FILES struct
-     *
      * @return array|UploadedFileInterface
      */
     private static function createUploadedFileFromSpec(array $value)
@@ -110,7 +107,6 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
      * UploadedFileInterface instances.
      *
      * @param array $files
-     *
      * @return UploadedFileInterface[]
      */
     private static function normalizeNestedFileSpec(array $files = [])
@@ -137,7 +133,7 @@ class ServerRequest extends \YoastSEO_Vendor\GuzzleHttp\Psr7\Request implements 
         $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
         $headers = \getallheaders();
         $uri = self::getUriFromGlobals();
-        $body = new \YoastSEO_Vendor\GuzzleHttp\Psr7\CachingStream(new \YoastSEO_Vendor\GuzzleHttp\Psr7\LazyOpenStream('php://input', 'r+'));
+        $body = new \YoastSEO_Vendor\GuzzleHttp\Psr7\LazyOpenStream('php://input', 'r+');
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? \str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
         $serverRequest = new \YoastSEO_Vendor\GuzzleHttp\Psr7\ServerRequest($method, $uri, $headers, $body, $protocol, $_SERVER);
         return $serverRequest->withCookieParams($_COOKIE)->withQueryParams($_GET)->withParsedBody($_POST)->withUploadedFiles(self::normalizeFiles($_FILES));

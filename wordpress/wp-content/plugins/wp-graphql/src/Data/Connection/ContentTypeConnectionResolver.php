@@ -91,41 +91,39 @@ class ContentTypeConnectionResolver extends AbstractConnectionResolver {
 		}
 
 		$query_args = $this->get_query_args();
-		return array_values( \WPGraphQL::get_allowed_post_types( 'names', $query_args ) );
+		return array_values( get_post_types( $query_args ) );
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Get the nodes from the query.
+	 *
+	 * We slice the array to match the amount of items that was asked for, as we over-fetched
+	 * by 1 item to calculate pageInfo.
+	 *
+	 * For backward pagination, we reverse the order of nodes.
+	 *
+	 * @return array
+	 * @throws Exception
 	 */
-	public function get_ids_for_nodes() {
-		if ( empty( $this->ids ) ) {
-			return [];
+	public function get_nodes() {
+
+		$nodes = parent::get_nodes();
+
+		if ( isset( $this->args['after'] ) ) {
+			$key   = array_search( $this->get_offset(), array_keys( $nodes ), true );
+			$nodes = array_slice( $nodes, $key + 1, null, true );
 		}
 
-		$ids = $this->ids;
-
-		// If pagination is going backwards, revers the array of IDs
-		$ids = ! empty( $this->args['last'] ) ? array_reverse( $ids ) : $ids;
-
-		if ( ! empty( $this->get_offset() ) ) {
-			// Determine if the offset is in the array
-			$key = array_search( $this->get_offset(), $ids, true );
-			if ( false !== $key ) {
-				$key = absint( $key );
-				if ( ! empty( $this->args['before'] ) ) {
-					// Slice the array from the back.
-					$ids = array_slice( $ids, 0, $key, true );
-				} else {
-					// Slice the array from the front.
-					$key ++;
-					$ids = array_slice( $ids, $key, null, true );
-				}
-			}
+		if ( isset( $this->args['before'] ) ) {
+			$nodes = array_reverse( $nodes );
+			$key   = array_search( $this->get_offset(), array_keys( $nodes ), true );
+			$nodes = array_slice( $nodes, $key + 1, null, true );
+			$nodes = array_reverse( $nodes );
 		}
 
-		$ids = array_slice( $ids, 0, $this->query_amount, true );
+		$nodes = array_slice( $nodes, 0, $this->query_amount, true );
 
-		return $ids;
+		return ! empty( $this->args['last'] ) ? array_filter( array_reverse( $nodes, true ) ) : $nodes;
 	}
 
 	/**

@@ -6,7 +6,6 @@ use GraphQL\Type\Definition\ResolveInfo;
 use GraphQLRelay\Relay;
 use WP_Post_Type;
 use WPGraphQL\AppContext;
-use WPGraphQL\Utils\Utils;
 
 /**
  * Class MediaItemMutation
@@ -61,8 +60,9 @@ class MediaItemMutation {
 			$insert_post_args['post_title'] = basename( $file['file'] );
 		}
 
-		if ( ! empty( $input['authorId'] ) ) {
-			$insert_post_args['post_author'] = Utils::get_database_id_from_id( $input['authorId'] );
+		$author_id_parts = ! empty( $input['authorId'] ) ? Relay::fromGlobalId( $input['authorId'] ) : null;
+		if ( is_array( $author_id_parts ) && ! empty( $author_id_parts['id'] ) ) {
+			$insert_post_args['post_author'] = absint( $author_id_parts['id'] );
 		}
 
 		if ( ! empty( $input['commentStatus'] ) ) {
@@ -90,7 +90,16 @@ class MediaItemMutation {
 		}
 
 		if ( ! empty( $input['parentId'] ) ) {
-			$insert_post_args['post_parent'] = Utils::get_database_id_from_id( $input['parentId'] );
+			if ( absint( $input['parentId'] ) ) {
+				$insert_post_args['post_parent'] = absint( $input['parentId'] );
+			} else {
+
+				$parent_id_parts = ( ! empty( $input['parentId'] ) ? Relay::fromGlobalId( $input['parentId'] ) : null );
+
+				if ( is_array( $parent_id_parts ) && absint( $parent_id_parts['id'] ) ) {
+					$insert_post_args['post_parent'] = absint( $parent_id_parts['id'] );
+				}
+			}
 		}
 
 		/**

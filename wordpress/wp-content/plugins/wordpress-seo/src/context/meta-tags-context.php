@@ -6,7 +6,6 @@ use WP_Block_Parser_Block;
 use WP_Post;
 use WPSEO_Replace_Vars;
 use Yoast\WP\SEO\Config\Schema_IDs;
-use Yoast\WP\SEO\Config\Schema_Types;
 use Yoast\WP\SEO\Helpers\Image_Helper;
 use Yoast\WP\SEO\Helpers\Indexable_Helper;
 use Yoast\WP\SEO\Helpers\Options_Helper;
@@ -26,7 +25,6 @@ use Yoast\WP\SEO\Repositories\Indexable_Repository;
  * Class that contains all relevant data for rendering the meta tags.
  *
  * @property string       $canonical
- * @property string       $permalink
  * @property string       $title
  * @property string       $description
  * @property string       $id
@@ -48,7 +46,6 @@ use Yoast\WP\SEO\Repositories\Indexable_Repository;
  * @property string       $open_graph_publisher
  * @property string       $twitter_card
  * @property string       $page_type
- * @property bool         $has_article
  * @property bool         $has_image
  * @property int          $main_image_id
  * @property string       $main_image_url
@@ -82,13 +79,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	 * @var Indexable_Presentation
 	 */
 	public $presentation;
-
-	/**
-	 * Determines whether we have an Article piece. Set to true by the Article piece itself.
-	 *
-	 * @var bool
-	 */
-	public $has_article = false;
 
 	/**
 	 * The options helper.
@@ -226,19 +216,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	}
 
 	/**
-	 * Generates the permalink.
-	 *
-	 * @return string
-	 */
-	public function generate_permalink() {
-		if ( ! \is_search() ) {
-			return $this->presentation->permalink;
-		}
-
-		return \add_query_arg( 's', \get_search_query(), \trailingslashit( $this->site_url ) );
-	}
-
-	/**
 	 * Generates the id.
 	 *
 	 * @return string the id
@@ -296,13 +273,7 @@ class Meta_Tags_Context extends Abstract_Presentation {
 		 *
 		 * @api string $company_name.
 		 */
-		$company_name = \apply_filters( 'wpseo_schema_company_name', $this->options->get( 'company_name' ) );
-
-		if ( empty( $company_name ) ) {
-			$company_name = $this->site_name;
-		}
-
-		return $company_name;
+		return \apply_filters( 'wpseo_schema_company_name', $this->options->get( 'company_name' ) );
 	}
 
 	/**
@@ -312,10 +283,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	 */
 	public function generate_person_logo_id() {
 		$person_logo_id = $this->image->get_attachment_id_from_settings( 'person_logo' );
-
-		if ( empty( $person_logo_id ) ) {
-			$person_logo_id = $this->fallback_to_site_logo();
-		}
 
 		/**
 		 * Filter: 'wpseo_schema_person_logo_id' - Allows filtering person logo id.
@@ -333,11 +300,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	public function generate_person_logo_meta() {
 		$person_logo_meta = $this->image->get_attachment_meta_from_settings( 'person_logo' );
 
-		if ( empty( $person_logo_meta ) ) {
-			$person_logo_id   = $this->fallback_to_site_logo();
-			$person_logo_meta = $this->image->get_best_attachment_variation( $person_logo_id );
-		}
-
 		/**
 		 * Filter: 'wpseo_schema_person_logo_meta' - Allows filtering person logo meta.
 		 *
@@ -353,10 +315,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	 */
 	public function generate_company_logo_id() {
 		$company_logo_id = $this->image->get_attachment_id_from_settings( 'company_logo' );
-
-		if ( empty( $company_logo_id ) ) {
-			$company_logo_id = $this->fallback_to_site_logo();
-		}
 
 		/**
 		 * Filter: 'wpseo_schema_company_logo_id' - Allows filtering company logo id.
@@ -536,24 +494,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 			$additional_type = $this->options->get( 'schema-article-type-' . $this->indexable->object_sub_type );
 		}
 
-		/** This filter is documented in inc/options/class-wpseo-option-titles.php */
-		$allowed_article_types = \apply_filters( 'wpseo_schema_article_types', Schema_Types::ARTICLE_TYPES );
-
-		if ( ! \array_key_exists( $additional_type, $allowed_article_types ) ) {
-			$additional_type = $this->options->get_title_default( 'schema-article-type-' . $this->indexable->object_sub_type );
-		}
-
-		// If the additional type is a subtype of Article, we're fine, and we can bail here.
-		if ( \stripos( $additional_type, 'Article' ) !== false ) {
-			/**
-			 * Filter: 'wpseo_schema_article_type' - Allow changing the Article type.
-			 *
-			 * @param string|string[] $type      The Article type.
-			 * @param Indexable       $indexable The indexable.
-			 */
-			return \apply_filters( 'wpseo_schema_article_type', $additional_type, $this->indexable );
-		}
-
 		$type = 'Article';
 
 		/*
@@ -568,7 +508,12 @@ class Meta_Tags_Context extends Abstract_Presentation {
 			$type = [ $type, $additional_type ];
 		}
 
-		// Filter documented on line 499 above.
+		/**
+		 * Filter: 'wpseo_schema_article_type' - Allow changing the Article type.
+		 *
+		 * @param string|string[] $type      The Article type.
+		 * @param Indexable       $indexable The indexable.
+		 */
 		return \apply_filters( 'wpseo_schema_article_type', $type, $this->indexable );
 	}
 
@@ -580,7 +525,7 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	 * @return string
 	 */
 	public function generate_main_schema_id() {
-		return $this->permalink;
+		return $this->canonical . Schema_IDs::WEBPAGE_HASH;
 	}
 
 	/**
@@ -591,10 +536,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	public function generate_main_image_url() {
 		if ( $this->main_image_id !== null ) {
 			return $this->image->get_attachment_image_url( $this->main_image_id, 'full' );
-		}
-
-		if ( ! \is_singular() ) {
-			return null;
 		}
 
 		$url = $this->image->get_post_content_image( $this->id );
@@ -608,26 +549,14 @@ class Meta_Tags_Context extends Abstract_Presentation {
 	/**
 	 * Gets the main image ID.
 	 *
-	 * @return int|null The main image ID.
+	 * @return int|false|null The main image ID.
 	 */
 	public function generate_main_image_id() {
-		switch ( true ) {
-			case is_singular():
-				return $this->get_singular_post_image( $this->id );
-			case is_author():
-			case is_tax():
-			case is_tag():
-			case is_category():
-			case is_search():
-			case is_date():
-			case is_post_type_archive():
-				if ( ! empty( $GLOBALS['wp_query']->posts ) ) {
-					return $this->get_singular_post_image( $GLOBALS['wp_query']->posts[0]->ID );
-				}
-				return null;
-			default:
-				return null;
+		if ( ! \has_post_thumbnail( $this->id ) ) {
+			return null;
 		}
+
+		return \get_post_thumbnail_id( $this->id );
 	}
 
 	/**
@@ -649,43 +578,6 @@ class Meta_Tags_Context extends Abstract_Presentation {
 			'indexable'    => $this->indexable,
 			'presentation' => $this->presentation,
 		];
-	}
-
-	/**
-	 * Retrieve the site logo ID from WordPress settings.
-	 *
-	 * @return false|int
-	 */
-	private function fallback_to_site_logo() {
-		$logo_id = \get_option( 'site_logo' );
-		if ( ! $logo_id ) {
-			$logo_id = \get_theme_mod( 'custom_logo', false );
-		}
-
-		return $logo_id;
-	}
-
-	/**
-	 * Get the ID for a post's featured image.
-	 *
-	 * @param int $id Post ID.
-	 *
-	 * @return int|null
-	 */
-	private function get_singular_post_image( $id ) {
-		if ( \has_post_thumbnail( $id ) ) {
-			$thumbnail_id = \get_post_thumbnail_id( $id );
-			// Prevent returning something else than an int or null.
-			if ( \is_int( $thumbnail_id ) && $thumbnail_id > 0 ) {
-				return $thumbnail_id;
-			}
-		}
-
-		if ( \is_singular( 'attachment' ) ) {
-			return \get_query_var( 'attachment_id' );
-		}
-
-		return null;
 	}
 
 	/* ********************* DEPRECATED METHODS ********************* */
@@ -714,3 +606,4 @@ class Meta_Tags_Context extends Abstract_Presentation {
 }
 
 \class_alias( Meta_Tags_Context::class, 'WPSEO_Schema_Context' );
+

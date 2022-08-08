@@ -5,7 +5,6 @@ namespace YoastSEO_Vendor\GuzzleHttp\Psr7;
 use YoastSEO_Vendor\Psr\Http\Message\StreamInterface;
 /**
  * Stream decorator trait
- *
  * @property StreamInterface stream
  */
 trait StreamDecoratorTrait
@@ -48,7 +47,7 @@ trait StreamDecoratorTrait
     }
     public function getContents()
     {
-        return \YoastSEO_Vendor\GuzzleHttp\Psr7\Utils::copyToString($this);
+        return copy_to_string($this);
     }
     /**
      * Allow decorators to implement custom methods
@@ -120,7 +119,6 @@ trait StreamDecoratorTrait
      * Implement in subclasses to dynamically create streams when requested.
      *
      * @return StreamInterface
-     *
      * @throws \BadMethodCallException
      */
     protected function createStream()

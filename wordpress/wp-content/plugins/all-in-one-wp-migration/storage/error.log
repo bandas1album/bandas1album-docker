@@ -616,3 +616,627 @@ Aug 05 2022 03:15:48
 Aug 05 2022 03:15:48
 {"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/ORIG_HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
 
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/pre-commit.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/pre-push.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/prepare-commit-msg.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/fsmonitor-watchman.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/pre-rebase.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/applypatch-msg.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/commit-msg.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/update.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/post-update.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/pre-receive.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/hooks\/pre-applypatch.sample): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/info\/exclude): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/description): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/refs\/heads\/main): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/refs\/heads\/master): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/refs\/remotes\/origin\/HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/refs\/remotes\/origin\/master): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/config): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/pack\/pack-788faa781ac1635542f4b6d9971f202a92089595.pack): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/pack\/pack-788faa781ac1635542f4b6d9971f202a92089595.idx): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/71\/592fb33a7d445d0f7b12142c357e8d65aad764): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/72\/d40235ba07391c21ad02ca8fccea983c780282): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/bf\/1e3d4de2f0c2c94f6337c996b6d0bdf0945076): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/e6\/3aca2fe9db157553510bdc98740d9b75b777c7): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/a9\/c2c83707588217788054e99b2baba1458e0573): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/25\/67c2da3e9e90c2c3cbe903291cd860d653df39): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/74\/c796dfca257295b1df0aad5a6c354ad88757c8): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/74\/a9bd065de726bd09bf69244add9f6b6d118148): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/0e\/9bf13355a4882776b401d93b0f32c620c6de80): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/f0\/f55a4f2cdba9fd5e1342628ca68df2631c13b7): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/f0\/3058236d347ccd891a0529cf79ffed2d3a8cde): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/c2\/6e0f0aebb8b7d46fcdcbf486eb45b4cdeab0cc): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/ce\/190dc4338480a490e0b1301f6ce3d223f247f5): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/ec\/e9364c3cd1d439402b87138dfcecbf598d4b4d): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/ec\/483c33e633abe4f02a6b956f869fd5b1cc252e): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/87\/9e8fe1353480adbaf802725e30af81aa8c7039): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/a1\/afb6d07f1ac5e563b1df6aa2c16272fffa00f7): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:40
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/58\/361a05ee6fac2409a7e85738448b18944c62c2): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/58\/6b1d3fa69b341b6b3920d6424a84a965d64444): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/5b\/d723f8adce8720222102b185484be205ca6d9c): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/45\/311d605cf5ecebbd341d4ab58310760394e334): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/8d\/2f029956db35bdc1c8e0099df78271ce7d66b3): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/5f\/088ea7bd51cba19e758d5cdcd6c657655ba610): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/5f\/38de06c9669549e231fdd217a03236627360d0): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/5a\/bd144b0628d2c1e560f2318c1615a654505c7c): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/6e\/0f916890c567c8f18cf3c96e0a59c383ae7231): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/94\/30b267e9aa1523243238a1a7d6f0c5f09abb84): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/2c\/43abb727576f97a98976a87862c21cb5178f75): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/d1\/88e99ce4fc53af79171e869fbf7dc51e0a9866): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/b8\/bcc928ca4053f096286a5455d9abd35be3bab2): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/10\/c6f4e9c76544a3c0a95523cf1e7f1a878246fc): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/28\/646ffb52a145da27598cd9b4ccd530df408f3b): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/eb\/44342552496c8ecb68fa7a8a6bbeafc139cd0b): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/6a\/6d924047bfe1615a6012424ae3571740afaabf): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/39\/06ee082429b3f25a198cb9184b5dbc32603a81): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/39\/de4d391c5fe4a225f58e8e94ca33b00da9d226): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/fb\/640638d5ea62f6c3815bc52542b05a5428e712): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/fb\/079a6cf2bd82091c75122371a7a250caa3f209): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/15\/ac90455a73b055908052fc7105d8aef88d7f8b): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/97\/5ffad1985c34a93644ddb98d0f6d6335badade): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/1f\/0aff209e388b93a7438fc71e40c4d049a7c537): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/f1\/29e1ab6686cda9df374320cc1d42b582b3ceb6): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/2f\/5de215d403873a2e67827e94bdbee2305d29a7): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/2f\/06a2289c6259ea4f9e48b63009bb50c9fcf5bf): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/7e\/7501ca7ec57107ae5ec890587875da940457c6): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/7e\/b8a559a85fd9e7719631191385856fe3373953): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/4a\/dfef0b8f673f3869f25603ed76ef4a977bd067): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/fd\/7448f93a0521a58b4b038a69db9cdc84bff554): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/ab\/146b3b534f30c2f463e3b4780b86a820bc6b29): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/e7\/91bf6646a1d2a90175a438d7bbcfc47dd30f41): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/6c\/9f2e3bb9ca54d83c72e12bf5fca0ac227fcef0): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/db\/be36d5c6af3289221979f373edca2dab9e6b49): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/3e\/206c273be3e33f8b500d34a5d58f370d22ac64): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/55\/b474df32b2726d681681d50b876d0037b6aff8): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/e3\/a631d8ed6e6d5e4b71672b843b1a376ba2a290): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/78\/05ffb1869dcdeab0f51d089911545ab09703ab): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/7c\/6f19f75ebd708a1f8e553d211ed7b0c1e3d9b8): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/7c\/981ed02ccfdf62d109eb1e35c0dd6c9e22a282): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/f6\/cbc7d1726fa0550232bebb44fbc7d0d0bae597): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/f6\/4c5e9c4fa5a648897e9f1846ee998ab5e5672e): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/88\/4a4d9e117dae90eedbb728c9f1887ae90156d1): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/4e\/dbd22ac6ee59233d22d21b5a2bf2200da3e8ab): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/77\/8ab6bb8900e1fda77f720806fb79f58e2e1abd): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/d8\/4c8040219d5601a02d5b8abb7ed2edc6d502bb): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/c4\/1e6d453f408be1a7b226f7c1ec32e2d52612f7): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/7f\/334463973c178540cd0594c41870411bfe8460): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/93\/e20870f109c4006d7ad1829f62aec8791a7630): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/4d\/11e1192fd6142cee8bd12abe5695ad3240ba82): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/2d\/2d924b8d1bfb7301657b171ab589a78070661d): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/83\/4dbaa01db17df6e1c6b53d0a024a54162c5b14): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/40\/df19ca3d62cfed11c6573c5781dcf9fdd5bbbe): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/d7\/299f8dd33487c344b25c9fcccb54e91a0508eb): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/objects\/30\/387d3dad92515abc4333da4223718dff63bb59): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/packed-refs): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/logs\/refs\/remotes\/origin\/HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/logs\/refs\/remotes\/origin\/master): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/logs\/refs\/heads\/main): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/logs\/refs\/heads\/master): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): Not a directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/logs\/HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/index): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/FETCH_HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"mkdir(): File exists","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":293}
+
+Aug 08 2022 02:10:41
+{"Number":2,"Message":"fopen(\/var\/www\/html\/wp-content\/themes\/bandas1album-theme\/.git\/ORIG_HEAD): failed to open stream: No such file or directory","File":"\/var\/www\/html\/wp-content\/plugins\/all-in-one-wp-migration\/lib\/vendor\/servmask\/archiver\/class-ai1wm-extractor.php","Line":486}
+
+Aug 08 2022 02:11:08
+{"type":2,"message":"unlink(\/var\/www\/html\/wp-content\/wflogs\/template.0911585001659924667.tmp): No such file or directory","file":"\/var\/www\/html\/wp-content\/plugins\/wordfence\/lib\/wordfenceClass.php","line":2225}
+
+Aug 08 2022 02:11:08
+{"type":2,"message":"unlink(\/var\/www\/html\/wp-content\/wflogs\/template.0911579001659924667.tmp): No such file or directory","file":"\/var\/www\/html\/wp-content\/plugins\/wordfence\/lib\/wordfenceClass.php","line":2204}
+

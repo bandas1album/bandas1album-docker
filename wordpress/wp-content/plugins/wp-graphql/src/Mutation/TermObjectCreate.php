@@ -70,7 +70,7 @@ class TermObjectCreate {
 		 */
 		if ( true === $taxonomy->hierarchical ) {
 			$fields['parentId'] = [
-				'type'        => 'ID',
+				'type'        => 'Id',
 				// Translators: The placeholder is the name of the taxonomy for the object being mutated
 				'description' => sprintf( __( 'The ID of the %1$s that should be set as the parent', 'wp-graphql' ), $taxonomy->name ),
 			];

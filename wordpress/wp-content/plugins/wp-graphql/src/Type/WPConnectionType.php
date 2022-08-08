@@ -130,14 +130,6 @@ class WPConnectionType {
 	 */
 	public function __construct( array $config, TypeRegistry $type_registry ) {
 
-		/**
-		 * Filter the config of WPConnectionType
-		 *
-		 * @param array        $config         Array of configuration options passed to the WPConnectionType when instantiating a new type
-		 * @param WPConnectionType $wp_connection_type The instance of the WPConnectionType class
-		 */
-		$config = apply_filters( 'graphql_wp_connection_type_config', $config, $this );
-
 		$this->validate_config( $config );
 
 		$this->config                = $config;
@@ -438,6 +430,11 @@ class WPConnectionType {
 				'auth'        => $this->auth,
 				'description' => ! empty( $this->config['description'] ) ? $this->config['description'] : sprintf( __( 'Connection between the %1$s type and the %2$s type', 'wp-graphql' ), $this->from_type, $this->to_type ),
 				'resolve'     => function ( $root, $args, $context, $info ) {
+
+					if ( ! isset( $this->resolve_connection ) || ! is_callable( $this->resolve_connection ) ) {
+						return null;
+					}
+
 					$context->connection_query_class = $this->query_class;
 					$resolve_connection              = $this->resolve_connection;
 

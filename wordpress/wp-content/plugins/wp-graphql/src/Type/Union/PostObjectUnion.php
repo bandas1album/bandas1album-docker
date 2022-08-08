@@ -41,13 +41,17 @@ class PostObjectUnion {
 	 * @return array
 	 */
 	public static function get_possible_types() {
-		$possible_types = [];
-		/** @var \WP_Post_Type[] */
-		$allowed_post_types = \WPGraphQL::get_allowed_post_types( 'objects' );
+		$possible_types     = [];
+		$allowed_post_types = \WPGraphQL::get_allowed_post_types();
 
-		foreach ( $allowed_post_types as $post_type_object ) {
-			if ( empty( $possible_types[ $post_type_object->name ] ) && isset( $post_type_object->graphql_single_name ) ) {
-				$possible_types[ $post_type_object->name ] = $post_type_object->graphql_single_name;
+		if ( ! empty( $allowed_post_types ) && is_array( $allowed_post_types ) ) {
+			foreach ( $allowed_post_types as $allowed_post_type ) {
+				if ( empty( $possible_types[ $allowed_post_type ] ) ) {
+					$post_type_object = get_post_type_object( $allowed_post_type );
+					if ( isset( $post_type_object->graphql_single_name ) ) {
+						$possible_types[ $allowed_post_type ] = $post_type_object->graphql_single_name;
+					}
+				}
 			}
 		}
 

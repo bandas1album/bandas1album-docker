@@ -52,12 +52,12 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 
 		add_menu_page(
 			'Yoast SEO: ' . __( 'Dashboard', 'wordpress-seo' ),
-			'Yoast SEO ' . $this->get_notification_counter(),
+			__( 'SEO', 'wordpress-seo' ) . ' ' . $this->get_notification_counter(),
 			$manage_capability,
 			$page_identifier,
 			$admin_page_callback,
 			$this->get_icon_svg(),
-			99
+			'99.31337'
 		);
 
 		// Wipe notification bits from hooks.

@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.0
-Stable tag: 19.4
+Tested up to: 5.8
+Stable tag: 17.0
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -36,15 +36,13 @@ Yoast SEO is packed full of features, designed to help visitors and search engin
 * **Faster loading times** for your whole website, due to an innovative way of managing data in WordPress.
 * **[Premium]** E-mail support for our [Yoast SEO Premium](https://yoa.st/1v8) users.
 * **[Premium]** The possibility to expand Yoast SEO with the [News SEO](https://yoa.st/1uv), [Video SEO](https://yoa.st/1uw), [Local SEO](https://yoa.st/1uu) and [WooCommerce SEO](https://yoa.st/3rh) extensions.
-* **[Premium]** **New!** Yoast SEO Premium comes with wide-ranging crawl settings that help you improve how search engines crawl your site.
-* **[Premium]** **New!** Yoast SEO Premium comes with an IndexNow integration to ping search engines like Microsoft Bing whenever you publish or update content.
 
 #### WRITE KILLER CONTENT WITH YOAST SEO
 We know content is king, that's why Yoast SEO is famous for its **state-of-the-art content and SEO analysis**. Yoast SEO gives you:
 
 * **SEO analysis**: an invaluable tool while writing SEO-friendly content with the right (focus) keyphrases in mind.
 * **Readability analysis**: ensures that humans and search engines can read and understand your content.
-* **Full language support** for: English, German, French, Dutch, Spanish, Italian, Russian, Indonesian, Polish, Portuguese, Arabic, Swedish, Hebrew, Hungarian, Turkish, Czech, Norwegian, Slovak and Greek.
+* **Full language support** for: English, German, French, Dutch, Spanish, Italian, Russian, Indonesian, Polish, Portuguese, Arabic, Swedish, Hebrew, Hungarian, Turkish, Czech, Norwegian and Slovak.
 * **A Google preview**, which shows what your listings will look like in the search results. Even on mobile devices!
 * **Innovative Schema blocks** for the WordPress block editor, so that your FAQ and HowTo content can be shown directly in the search results. Plus a breadcrumbs block to guide your users.
 * **[Premium] Internal linking blocks** to easily improve the structure of your content. Easily add a **table of contents block**, a **related links block**, a **subpages** block, or **siblings block**! Plus, we’ll keep adding these easy-to-add blocks to improve your site structure.
@@ -55,7 +53,6 @@ We know content is king, that's why Yoast SEO is famous for its **state-of-the-a
 * **[Premium]** Automatic internal linking suggestions: write your article and get automatic suggested posts to link to!
 * **[Premium]** An orphaned content filter to detect posts that have no links pointing towards them!
 * **[Premium]** SEO workouts to make working on your site as easy as ABC. These SEO workflows will get your site into shape in no time!
-* **[Premium]** **New!** Yoast SEO Premium comes with a new word complexity feature that gives you actionable feedback on using difficult words. This feature is in beta and English only for now.
 
 #### KEEP YOUR SITE IN PERFECT SHAPE
 
@@ -113,7 +110,6 @@ Yoast SEO integrates seamlessly into a range of themes and plugins. We work part
 * The [Elementor](https://wordpress.org/plugins/elementor/) website builder.
 * [Zapier](https://zapier.com/apps/yoast-seo/integrations), which helps you automate your publishing flow.
 * [Algolia](https://wordpress.org/plugins/wp-search-with-algolia/) integration to improve the quality of your site search.
-* [WordProof](https://wordproof.com/), which helps you prove ownership by adding timestamps.
 
 ### BUG REPORTS
 
@@ -130,7 +126,7 @@ Want more information on search engine optimization and Yoast SEO? Have a look a
 * Also follow Yoast on [Facebook](https://facebook.com/yoast), [Instagram](https://www.instagram.com/yoast/) & [Twitter](https://twitter.com/yoast).
 
 == Installation ==
-Starting with Yoast SEO consists of just two steps: installing and setting up the plugin. Yoast SEO is designed to work with your site’s specific needs, so don’t forget to go through the Yoast SEO first-time configuration as explained in the ‘after activation’ step!
+Starting with Yoast SEO consists of just two steps: installing and setting up the plugin. Yoast SEO is designed to work with your site’s specific needs, so don’t forget to go through the Yoast SEO configuration wizard as explained in the ‘after activation’ step!
 
 ### INSTALL YOAST SEO FROM WITHIN WORDPRESS
 
@@ -147,8 +143,8 @@ Starting with Yoast SEO consists of just two steps: installing and setting up th
 
 ### AFTER ACTIVATION
 
-1. You should see (a notice to start) the Yoast SEO first-time configuration;
-1. Go through this configuration and set up the plugin for your site;
+1. You should see (a notice to start) the Yoast SEO configuration wizard;
+1. Go through the configuration wizard and set up the plugin for your site;
 1. You’re done!
 
 == Frequently Asked Questions ==
@@ -240,51 +236,44 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 19.4 =
-Release Date: July 26th, 2022
+= 17.0 =
+Release Date: August 24th, 2021
 
-Yoast SEO 19.4 is out today! In this release, we’ve rolled out some improvements to our Schema structured data implementation. Additionally, we've fixed several bugs and added a couple of small enhancements to ensure you get the best user experience with Yoast SEO. But that's not all, we also have a new integration page coming in this release. Read more about what's new in Yoast SEO 19.4 in [our release post in English](https://yoa.st/release-26-7-22) or [our release post in Spanish](https://yoa.st/release-26-7-22-spanish)!
-
-Enhancements:
-
-* Enhances the Integrations page and relocates it in the Yoast SEO sidebar menu.
-* Improves Schema for archive pages by using the featured image of the first post as `primaryImageOfPage` and by removing `potentialAction`.
-* Improves Schema for attachment pages by setting the proper `primaryImage` attribute.
-* Allows marking inside of Classic editor blocks in the Block/Gutenberg editor.
-* Improves the text analysis by adding curly (“”) and angular quotation marks («»).
-* Improves the text analysis by filtering out all versions of the ampersand (&).
-* Removes the date from the meta description for WooCommerce products.
-
-Bugfixes:
-
-* Fixes a bug where a notice was shown indicating that the Flesch reading ease score has moved from the readability analysis to the Insights for languages that do not have Flesch reading ease support.
-* Fixes a bug where an `Undefined index: SERVER_NAME` warning would be triggered in cronjobs or WP CLI commands.
-
-= 19.3 =
-Release Date: July 12th, 2022
-
-Yoast SEO 19.3 is out today! In this release, we’ve rolled out some improvements to our Schema structured data implementation. In addition, we also added an Insights tab with information about your content, improved our content analyses and a whole lot more. Read more about what's new in Yoast SEO 19.3 in [our release post in English](https://yoa.st/release-12-7-22) or [our release post in Spanish](https://yoa.st/release-12-7-22-spanish)!
+Say hello to Yoast SEO 17.0! This release includes some behind-the-scenes improvements, including several fixes for our indexables data management. For now, please enjoy Yoast SEO and write the best possible content in the language of your choice! Read more about what’s new in Yoast SEO 17.0 in [our release post](https://yoa.st/release-17-0)!
 
 Enhancements:
 
-* Adds an Insights tab to the editors which contains the Flesch reading ease score and feedback, (estimated) reading time, and word count. Since the Flesch reading ease score has been moved to the insights tab, it is removed from the readability analysis.
-* Changes the `@id` of the main Schema `WebPage` node to be just the permalink for the current page, for interoperability with other plugins.
-* Changes the logic of the Schema generation to prefer featured image and in-content images instead of OpenGraph and Twitter images.
-* Uses the site logo set in the customizer as the logo in our Schema `Organization` output when a site has not set a logo in the Yoast SEO settings.
-* Improves the author meta tag to be displayed only on posts.
-* Adds a `wpseo_meta_author` hook to filter the content of the author meta tag.
-* Improves sentence recognition for German by disregarding ordinal numbers as potential sentence boundaries.
-* Adds canonical HTTP headers from RSS feeds to their parent URLs (for instance your homepage, or specific categories or tags), so the feeds themselves don't show up in search results.
-* Makes sure the `link` tag in the RSS feeds' `channel` section links to the most specific URL possible (for instance the category or tag the RSS feed is for) instead of the homepage.
-* Makes sure the title separator chosen in Yoast SEO is used for RSS feed titles too.
+* Speeds up load times of admin pages by preventing unnecessary counts of unindexed objects.
+* Cleans up items from the database that are not used anymore, thereby reducing the size of many sites' database.
+* Improves the overall performance and responsiveness in Gutenberg.
 
 Bugfixes:
 
-* Fixes a bug where the focus keyphrase in the Wincher integration table on posts and terms would not be marked with an asterisk.
-* Fixes a bug where a warning would be triggered when author data wasn't available for a post.
-* Fixes a bug where disabled settings in the General page would be set to `Off` upon saving the settings form.
-* Fixes a bug where the desktop preview would show a truncated title, while the title length progress bar and title width assessment would indicate that the title length was still within the limits.
-* Fixes a bug where the keyphrase density assessment errors, or fails to mark the found keyphrases in the text, when using keyphrases that include some regular expression control characters, for example brackets.
+* Fixes a bug where the `Save all` button in the bulk editor did not work.
+* Fixes a bug where the `Existing` column in the bulk editor did not update after save.
+
+Other:
+
+* Updates the message that recommends you to install WooCommerce SEO when WooCommerce is installed.
+
+= 16.9 =
+Release Date: August 10th, 2021
+
+Meet Yoast SEO 16.9: This release comes with two new image SEO assessments and improved performance. Happy updating! Read more about what’s new in Yoast SEO 16.9 in [our release post](https://yoa.st/release-16-9)!
+
+Enhancements:
+
+* Splits the `Image alt attributes` assessment into two assessments. The `Images` assessment checks if the page contains at least one image. The `Image Keyphrase` assessment checks if the images have alt texts, and if those alt texts contain the keyphrase.
+* Makes the `Transition Word` assessment not applicable when the text has less than 200 words, as transition words are less relevant for very short texts.
+* Reduces the load time of admin pages, by reducing the number of database queries and optimizing the queries themselves.
+* Improves the performance of large posts in the Block editor, Classic editor and Elementor.
+* Adds error details to the error message if SEO optimization fails for some unforeseen reason.
+* Cleans up indexables for WooCommerce check-out pages from the indexable table, in order to improve performance.
+* Adds post link indexing and term link indexing to the `wp yoast index` WP-CLI command.
+
+Bugfixes:
+
+* Fixes a bug where the `robots` meta tag could have incorrect values if users called the `wp_robots` filter to set certain values to `false`. Props to [Roy-Orbison](https://github.com/Roy-Orbison).
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
